@@ -1,0 +1,44 @@
+share_vocab: 1
+copy_attn: 1
+reuse_copy_attn: 1
+copy_loss_by_seqlength: 1
+global_attention: mlp
+encoder_type: brnn
+rnn_size: 512
+max_grad_norm: 2
+dropout: 0.0
+optim: adam
+learning_rate: 0.001
+warmup_steps: 8000
+decay_method: noam
+bridge: 1
+share_embeddings: 1
+
+save_data: data/Within-project/run/example
+--share_vocab: 1
+src_vocab: data/Within-project/run/example.vocab.src
+src_seq_length: 400
+tgt_seq_length: 15
+overwrite: False
+data:
+    corpus_1:
+        path_src: data/Within-project/train.src
+        path_tgt: data/Within-project/train.tgt
+    valid:
+        path_src: data/Within-project/valid.src
+        path_tgt: data/Within-project/valid.tgt
+
+both_embeddings: glove_dir/glove.6B.100d.txt
+embeddings_type: "GloVe"
+word_vec_size: 100
+
+save_model: model/Within-project/run_iTAPE
+save_checkpoint_steps: 5000
+train_steps: 50000
+valid_steps: 5000
+batch_size: 32
+valid_batch_size: 32
+seed: 789
+world_size: 1
+gpu_ranks:
+- 0

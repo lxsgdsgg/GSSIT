@@ -1,0 +1,56 @@
+share_vocab: 1
+copy_attn: 1
+reuse_copy_attn: 1
+copy_loss_by_seqlength: 1
+global_attention: mlp
+encoder_type: brnn
+rnn_size: 512
+max_grad_norm: 2
+dropout: 0.0
+optim: adam
+learning_rate: 2
+warmup_steps: 2000
+decay_method: noam
+bridge: 1
+share_embeddings: 1
+model_task: context
+context_ratio: 0.3
+
+save_data: data/Cross-project/run/example
+src_vocab: data/Cross-project/run/example.vocab.src
+src_seq_length_trunc: 500
+max_length: 40
+min_length: 8
+overwrite: False
+data:
+    corpus_1:
+        path_src: data/Cross-project/train.src
+        path_des: data/Cross-project/train.des
+        path_rep: data/Cross-project/train.rep
+        path_exp: data/Cross-project/train.exp
+        path_oth: data/Cross-project/train.oth
+        path_tgt: data/Cross-project/train.tgt
+    valid:
+        path_src: data/Cross-project/valid.src
+        path_des: data/Cross-project/valid.des
+        path_rep: data/Cross-project/valid.rep
+        path_exp: data/Cross-project/valid.exp
+        path_oth: data/Cross-project/valid.oth
+        path_tgt: data/Cross-project/valid.tgt
+
+both_embeddings: glove_dir/glove.6B.100d.txt
+embeddings_type: "GloVe"
+word_vec_size: 100
+
+save_model: model/Cross-project/run_GSSIT
+save_checkpoint_steps: 1000
+train_steps: 10000
+valid_steps: 1000
+batch_size: 32
+valid_batch_size: 32
+early_stopping: 5
+# early_stopping_criteria: rouge-l
+seed: 789
+world_size: 1
+gpu_ranks:
+- 0

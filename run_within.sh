@@ -1,0 +1,1 @@
+onmt_train -config title_generation_within_GSSIT.yaml -context
