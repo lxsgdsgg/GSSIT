@@ -1,0 +1,1168 @@
+My first impression was also that it would be awkward, but now I'm thinking that it could make sense: The list of indices identifies the sequence in which cumsum should traverse each sub-tensor.
+This breaks down the dynamic calculation performed when you pass sequence_length (because it assumes left-aligned inputs).
+As mentioned above, I think the TensorFlow API for using pre-trained "Zoo" models could be much simpler.
+I also fully believe that the performance on unit benchmarks is identical.
+Next question: what exception are you seeing?
+They claim to be getting rather substantial speed improvements on RNNs and LSTMs.
+Since a large amount of memory is required for fully-connected layers, I was thought that Pregel-like model parallelism on CPUs w/ vertical partitioning is more attractive for fully connected layers (blocking mat-mult on GPU also appears to me slow and memory demanding).
+Please see the new op gather_nd in array ops at HEAD/ in the nightly build.
+I should add, the threading point is partly my speculation based on what I observed in performance running xgboost and other applications that use a multithreaded blas through R.
+This is being worked on internally.
+I might have changed operation device placement recently.
+Note that both the CPU and GPU implementation that I've added to Eigen are extremely naive.
+Also the ZeroOut example is not a very good one IMO...
+When I was trying to implement RNN with while_loop(), I tried to concatenate output to a matrix.
+I think it would be great to have a bit more details in the docs, and maybe even have a bazel rule for building custom ops, similar to tf_kernel_library().
+It might even be a good idea to implement an arbitrary convxd function, there are instances where high dimensional inputs have spatial relevance.
+I am using a modified version of the Tensorflow tutorial "Deep MNIST for experts" with the Python API for a medical images classification project using convolutionnal networks.
+Currently this is not easy to do, even though a similar functionality exists in candidate sampling ops
+This pseudo code explains what I'm trying to achieve.
+Th dynamic calculation means the graph is unrolled up to the max_sequence_length, but if a sequence_length is provided the calculations on the unrolled graph are cut short once the sequence_length is reached, using a conditional op.
+I tried from a recent version and it doesn't happen there.
+I'm in the same situation as you and was able to build TensorFlow on my Mac with GPU support.
+It adds support for CUDA on OSX and uses CUDA 7.5 when building under OSX.
+I think that more general support for computation of complex numbers on the GPU will be valuable to the community.
+This is not something that a complete beginner in machine learning should attempt, although it has been done.
+I'm not sure whether to ask these questions here or on StackOverflow, but there are some related questions there that haven't been answered, and this is also sort of a request for improving the TensorFlow docs, so I hope it's OK that I ask the questions here.
+matmul's broadcasting is much more general, and in my opinion, also easier to understand.
+The base is the same since tensorflow container inherits from the same linux distro as the gpu enabled one in the link below.
+We have an external optimizer interface module coming to contrib/ that should address this.
+My next question is how to get probabilities of predictions?
+So even if Mac is not optimized enough right now, this is most likely to change in the nearest future.
+Would running it in docker make any difference as a workaround?
+Any ideas on what's the timing on those?
+Loads of operations in the embedding example are not supported on GPU.
+It's not easy to fix the docs so I think it's fine to have that little quirk.
+PS, I tried .10rc0 (build with --cuda) on mac and ubuntu, and that code snippet always finishes in a couple of seconds
+How can I see what compile options bazel is using?
+We're tracking our current lack of indexing fanciness here: #206.
+Can you explain what currently happens?
+Did you solve this problem?
+Unfortunately nvcc doesn't yet support c++14, but we can ask nvidia to start adding partial support for it starting with complex numbers.
+Torch has a LogSoftmax layer, that does what the name imply: it is the equivalent of a softmax followed by a log.
+Here are all the files that modify the pylint related to the wildcard-import
+I verified that there was no change in the amount of errors before and after the change.
+We(@douban)'re developing a lightweight mesos framework (named tfmesos) to run the tensorflow (0.8+) in Docker on Mesos.
+I'd be interested in knowing if anyone else succeeds at this and having that issue closed.
+To enable sampled decoding, we would need a tf.choice function to replace tf.argmax in
+If you're suggesting to add more checking code to the mnist example, that's also a good idea, I would change the title of this issue if that was the case.
+Is it possible to build tensorflow when one installed CUDA via apt-get (and thus does not have one cuda folder)?
+Why is TensorFlow so slow when inverting a matrix?
+It'd probably be better if we didn't have an option to disable the clean and fetch.
+All external pull requests are not merged directly, but committed through the Gerrit repo.
+(would be good to see the document update, though)
+In this case how shall I print out or save the probability value in csv format?
+In #664 @ville-k added support and a few have verified it works -- we'll try our best to keep it running but we don't have a test machine so please continue to contribute to keep it working!
+Would the upper bound be configurable?
+It has, but one thing I realize I haven't documented well is passing in optimization flags to the build process.
+We still need to add support for batch_cholesky, so I'm leaving the bug open for now.
+So maybe the GraphKeys don't need to be serialized but I would like to make this process easier.
+sorry for the confusion, with "small networks" I mean the deep neural networks can not have too many model parameters, otherwise the communication time between machines will exceed the computation time, which means speedup is not high.
+I use a linux machine for running TensorFlow, but I'm developing on MacBookPro (Early 2013) which has NVIDIA GeForce GT 650M.
+It seems that these options will work.
+So far, I I have to say that TensorBoard is a really great tool to analyze the training procedure.
+If all looks good we'll update our docs to officially recommend 0.7.1 late this week.
+The code is not yet in GitHub, because it has dependencies on other parts of the Google code base at the moment, most of which have been trimmed, but there are some remaining ones.
+These instructions assume that cuda libraries are available in /usr/local/lib64 which is typical if you install cuda with the default options.
+Please support CUDA 7.5
+Because the Mac multithreading just isn't as efficient.
+btw, if you guys need any help, please fire up related issues, add "help-needed" and area label, and I think all the guys here are eager to fix them :)
+Agreed, scatter on GPUs would be useful.
+It would be interesting to test the performance again with the optimized implementations.
+I added instructions for building ops and kernels outside of TensorFlow source tree.
+Could I have your script to reproduce?
+What was your detail configurations of the emulator in your case?
+I'm following the documentation here.
+Has there been any progress on this or related issues?
+Fancier variants of LSTMs would be great to have, the only question is whether they should go in core tensorflow, the contrib directory, or the models repo.
+Python 3 is a must have.
+I believe my events file is okay, made sure to flush(), running in chrome, tried uinstalling tf and reinstalling, messed with aliases and stuff in the path to events directory.
+However, to use the last state as the initial state for the next run, one must create a tf.placeholder().
+Will TensorFlow treat that as a symbolic loop and compile it?
+I may extend this by adding a bool flag like "right_aligned" to the rnn call, which assumes that calculation starts at len(inputs) - max(sequence_length), and copies the initial state through appropriately.
+Also, i used the --override flag when installing cuda toolkit via the .run script, which may or may not be relevant. cifar10 runs fine.
+Basically, these new types of RNN's are very promising and I hope to integrate them into TensorFlow over the next week if possible.
+This shouldn't be too hard since it happens very quickly, but I'm traveling for the next couple of days and won't be able to work on it until I'm done.
+I would suggest looking at how to implement tf.pow() as it is a binary operator.
+We're already running into code size issues, so we won't be able to accept 40 or 50 (a rather large chunk of the tensorflow binary would become transposes).
+I think 3 sounds more reasonable than the other two.
+I can find a lot of instructions for installing a single version cuda, but I can't find any information about installing 7.0 and 7.5 simultaneously.
+I have spent some time writing scripts to do stat in Caffe and this let me know Tensorboard is so amazing!
+I have successfully built the android demo with bazel.
+I've followed the instructions as outlined in the docs and at the moment, I'm still seeing 30MB libs on the disk.
+In general, TensorFlow prefers int64 when large indices or size are needed.
+I have a 2014 model with an NVIDIA GPU, it shouldn't be a super hard port.
+This is vexing...plus looking at the other issues, this does not lend faith to this highly publicized software release...
+LogSoftmax is quite convenient because I am often more interested in log-probabilities (eg for computing a log-likelihood) than in the probabilities themselves.
+I've recently upgraded another repository with MNIST sample with latest TensorFlow r0.8.
+Just to clarify, I'm using the MNIST tutorial (mnist_with_summaries.py), which as far as I understand should produce something visible in the graph mode.
+However for the log determinant, I agree that a Cholesky gradient would be nice to have.
+Using gdb, we get the following backtrace:
+This would seem to make the pre-trained Inception model useless in practice.
+We're actually planning to make the configure script optional.
+Let me upgrade TensorFlowAndroidDemo with r0.8 too.
+Thus, I don't think the above work would be wasted.
+Also, where should I look if I'd like to implement my own optimizers for GPU?
+I do agree that it would be great to support gradient on tf.diag.
+The desired behavior would be that tf.Print(input, data) works even if data contains a mix of IndexedSlices objects and things that can be converted to tensors, and the desired outcome would be output that looks something like
+Shall we update from the master branch ?
+I am working on making save and restore more self-contained.
+I was very surprised that gpu performance differed.
+Also, are you getting any 404s on the console in the TensorBoard frontend?
+Is this the desired behaviour?
+I've not used the timing functionality before.
+An easy way to reproduce it is to run bazel fetch //tensorflow/contrib/session_bundle/....
+To the original point: the tf.Graph methods for adding ops are definitely not thread-safe, and it would require a big redesign to achieve that (with only a small upside).
+CPU and GPU versions of lgamma, digamma, erf, and erfc are in, igamma/igammac/betainc are coming soon.
+I get this message not matter whether I run tensorboard from the pip package installation dir or from bazel-bin.
+Here is part of the tutorial explaining how to add tensor shapes to the graph visualizer.
+I wonder if it would be possible to do this automatically?
+We have tf.floor and tf.ceil, but we don't have round to nearest.
+Unfortunately, I think you might have to watch them on Safari, because for some reason the videos only stream on safari.
+Maybe it was specific only to your particular configuration.
+Make sure the PATH and LD_LIBRARY_PATH variables reflect the right location of the cuda toolkit you use.
+I think it's the ones that use the GPU.
+I think, tensorboard.visualize_graph(graph) sounds reasonable.
+Any update here?
+We will add support for higher rank inputs and nested tuples of inputs and outputs in a backwards compatible way in the future (i can't give estimates, but imagine it'll happen this summer sometime)
+I'm not a maintainer, but I think a PR would definitely be a good idea
+Unfortunately for now the only examples are in the unit tests.
+I think the Bazel team is doing amazing work helping to make that happen.
+See above, by "c++ implementation" I meant the implementation of memoization in C++ vs in Python, not the partial_run implementation :)
+Right, cudnn has an LRN implementation, so the point is to have it use that one.
+Could you share the method of installing different cuda(7.0 and 7.5) separately?
+The important thing seemed to be that the checkpoint file wasn't overwritten by a save with a different name and that it existed on the parameter server.
+E.g. in this paper arxiv.org/abs/1602.02410 we trained LSTMs that have 200M+ parameters and 3B+ total parameters in some cases.
+Note that with timeout specified the code didn't manage to finish in a minute (in comparison to less than 2 seconds with no timeout).
+If this can be implemented in tensorflow tf.multinomial it would be much, much appreciated.
+Putting in a full implementation of L-BFGS seems like a nontrivial task, but a first step could be introducing some sort of line search functionality, which could be an option to GradientDescentOptimizer as well when in full-batch (no-dropout) mode?
+I don't think tf.nn.linear is supposed to exist, but models/rnn/linear.py uses it.
+Contributions to add this to tf.contrib.layers would also be welcome, should be pretty easy.
+Oops actually maybe abs is not a good example, see this (possible) bug.
+Ideally I'd like to extend this with thread-based and a CUDA implementations using an approach like in the article that @chemelnucfin quoted above.
+According to the doc (r0.9 and master), max_pool3d doesn't support pooling along the depth axis (ksize[1] = 1).
+For now, how about a return_zeros argument that defaults to False?
+This is easy to do in the one-directional case but the bidirectional case has to flip the padding and align the activations of the shorter sequences.
+Regardless, it would be good to have a way to call derivatives of vectors and receive gradients of the expected shape.
+It'll get pushed to the public repo next week.
+It would be useful for orthogonality with RNN's.
+Warning: This is a pretty large change, so a good deal of discussion would be in order before starting.
+The weird thing is that the model is only about 10M on disk
+I'm pretty sure thats new, and it seems it doesn't have BN automatically included in it like the other convolution, which is a big draw back.
+For reference, here's the gradient implementation I came up with:
++1 for having it return reduce_prod(sparse_tensor.shape)
+Do you happen to have this information to hand?
+Searching the web, I found here that CUDA may not support std::complex because of STL incompatibilities:
+I don't think it's practical to have a warning like this, unfortunately.
+This question was also asked by me on StackOverflow:
+Padding on the front (aligning on the right) is usually used for the inputs of the sequence to sequence model.
+Did you make 6ish links in your /usr/local/cuda-7.5/lib64 folder?
+How does the merging / syncing process work with external Eigen changes?
+When I look at the debug output it appears that all the HTTP requests being made in the background are successful (return 200).
+Yes, conv2d can work with h=1, though it's possible one could write a faster kernel if you knew it was 1d.
+I've got a TFRecords file with ~9k Example protos that went from 115M to 1.7M after gzip.
+When will it be made available to public?
+Have you tried emulator with webcam as the camera?
+It is possible our internal tests will be run only in 3.4 (and 2.7), but if anything ever breaks we'll be happy to accept patches.
+You're right, we should have an op like choice.
+I noticed that many of the ops are now in the same following form:
+Btw, that code was never part of the public API :(
+Does the whole cluster need to be in debug, or just the master worker?
+Any idea where the bug could come from?
+Does the person working on it have a Github username?
+Looking forward for them to become available as TensorFlow operations!
+I see why this is not implemented yet, reverse the inputs is nasty with current code ....
+Note that I didn't have those issues configuring a few days ago.
+I could probably explicitly deploy this operation on the cpu, but it since this is a sliding window algorithm I'm surprised it doesn't have a gpu implementation.
+In my opinion there should be something more general.
+just ran into this, anyone working on it?
+I use a custom saver object in distributed mode that operates over a subset of the parameters in my model so that I can perform transfer learning between my models.
+Are there any utilities that can differentiate between a Tensor and a SparseTensor?
+That said, it would be really nice to implement GridLSTM (also by Alex Graves, and according to their paper showing a lot of promise with fewer parameters).
+Do you have any numbers on the speed?
+Tensorflow is a great tool but I see two bottlenecks for it to be widely used:
+We're still going through all of these issues and prioritizing, so we don't have a roadmap ready yet.
+Someone asked for map a while back, so if anyone wanted to tackle this task that might be the way to go.
+This is not very informative and it's what you see as the output for interactive shell (IPython).
+Is there a way to save and restore a DNNClassifier?
+I believe conv2d now supports unequal strides in the h and w dimensions. separable/depthwise don't yet, but for most people's purposes, that should be addressed.
+If so how do I fix that?
+I'm guessing this is complaining about a 0-dimensional tensor?
+@3XX0: Can you clarify what things TensorFlow should do and what needs to be fixed elsewhere?
+There's no technical reason why this should be, just an oversight on our part.
+So it seems BUILD is using different rules for user_ops/ and kernels/, with the CUDA headers not being included for user ops.
+In the docs, it explains the padding as follows:
+These are absolutely essential for many distributions (Beta, Dirichlet).
+github + travis CI + slack is awesome. Just make everything be a PR :)
+I also wonder if there are "finer grained issues"?
+We are trying to test tensorflow on mesos on GPU.
+have you gotten a shared library working?
+What are your thoughts about that?
+I will update this issue and close it once the documentation is updated (the commit is under review).
+The links to the whl files and build history can be found in the main README.md:
+Handling it at the gradient function level is probably bad, since it would add required complexity to an existing feature.
+zackchase@, you are right about the current gradients function.
+It seems more realistic that someone would create a separately maintained library that does forward-AD, and utilizes TensorFlow as backend.
+But we should also support the same in the usual flow with something like tf.export_graph() , which should export the pbtxt file in the loddir, and then tensor board --logdir=<> works as usual, if there is nothing else to show, it shows only the graph.
+Actually there are two versions of protobuf in my system, 2.6 below brew and 3.0 blew pip.
+What should I do?
+FYI last week I did try to look at this and cudnn appeared to give different results than I expected (eigen was correct for both CPU and GPU).
+It turned out that running data science in Linux was 4x-6x faster than with OS X on the same hardware, for both gpu and non-gpu tasks.
+Myself and James Hensman have implemented the method from the reference paper by Iain murray in TensorFlow on a fork:
+If not, then what can I do to get tensorflow working on my machine?
+Some documentation detailing this would be good.
+I've been privately writing GPU-based complex-valued ops for TF and decided to make my repository public.
+There's a reference use of lzo with protobufs in Twitter's elephantbird library.
+For cases in which one trains a RNN with the whole sequence being fed at once but during inference requires fetching and feeding the states on a per time-step basis, the solution right now is not very neat.
+Note that batch normalization is a different operation depending on whether the layer is convolutional or not: when using it on a convolutional layer, you can aggregate sufficient statistics across patches.
+The ops do check size requirements, but because of their generality, often don't have a ton of information about the larger use case.
+Is there example code for the my_parser function in the example in the documentation for batch_sequences_with_states?
+One thing I could imagine is adding a return_none flag instead of a return_zeros flag, with a default value of True.
+Were you able to reproduce this at some point?
+Checking the sizes in the general case is fairly hard (since sizes can only be checked once they are known, which is often when you run the graph, not when you define it).
+I'd like to use TensorFlow to write an application that would need complex128 as a dtype.
+Also note that build_all_ios.sh doesn't pass command line arguments to compile_ios_tensorflow.sh.
+Failing that, I think that adding TensorFlow ops that use the naive implementation would still be useful.
+I think the only reason for this limitation is that all the existing uses appear as part of a larger image pipeline where the size is known.
+Placeholders are just special in that they throw an error if you don't feed them while a variable would silently use its last value.
+I simply try to put a recurrent layer on top of a convolution layer, which directly manipulate the inputs.
+It's for both truncated BPTT and architectures using LSTM decoders.
+We are in the process of getting python3.5 build to work for linux.
+But @zplizzi does have a point, it might be valuable to add that to the documentation.
+We have released the code to train Inception in order to make it possible for people who need a network with such capabilities to train their own, and to modify the network or its preprocessing pipeline to meet their needs.
+So, while I totally get the issue folks have, honestly getting tf to use laptop gpus on OS X I don't think is going to buy you what you want, and you're gonna be happier switching to Linux for your computations.
+There are many methods that expect a list or a tensor specifying a shape as argument.
+One recent example is the introduction of tf.sparse_softmax() here.
+here is a post describing the comments if you're still having trouble
+we've reduced the footprint to about 11MB per architecture, which we're still working on shrinking but should be a lot more usable.
+I think this has been called 'atrous convolution', at least in the Eigen code.
+What would be really awesome is some sort of feature that allows the training scripts to pass Data to the TensorBoard logs.
+What's going on?
+The reason why it still exists is that the tensorflow.org show you the tutorial of r0.10 branch .
+In the second case, the cells are initialized with some encoded activation.
+My best guess is that Dimension("?") is hacked in such a way that any comparison using it returns some fake None which for some reason on OSX + python 3.4 means true (I tried explicitly "if None:" as a sanity check, it evaluates as false).
+Are there any plans to make the tf.matrix_determinant() GPU op?
+I don't think this is a good change.
+Is this expected?
+This is about the Inception model and example that is included with TensorFlow:
+As far as I know, currently there is no way to create and fill such a placeholder (or nested tuple of placeholders) automatically.
+Do you mean that I comment out everything related to mobile devices, not just if_mobile and if_android?
+do you mind explaining what you did?
+Indeed 90bad51 added support for zlib compressed TFRecords.
+I am wondering what is going on with the bidirectional RNN function in TF.
+This would be a good question for StackOverflow, rather than issues.
+Although the current build doesn't support GPU's for Macs, it seems to me from reading earlier threads that it is not possible to custom build for GPU support on the Mac, despite having CUDA libraries installed.
+How do we contribute towards python3 support?
+Currently I've been doing some work with TensorFlow (some of my work on http://blog.otoro.net/) and have been developing everything a Macbook Pro running the IPython stack.
+This is a feature request for Multidimensional LSTM.
+Is not particularly informative and it would be nice to see if there is a node preventing the gradient calculation (ie Gradient Cannot be calculated for Cast or ResizeBilinear operation) or if there is simply no connection (the variable is not connected to the loss function in any way.)
+Yeah, we've talked about this internally - it would be really cool to have a GUI for modifying the graph, but it seems like a lot of work and I suspect it would still not be powerful enough for most use cases.
+The image viewer is definitely one of the least-developed parts of TensorBoard at the moment.
+Is there being work done to support these ops on GPU?
+As always in Machine Learning, Inception has its limitations when it comes to generalizing beyond the type of data it was trained on.
+Such a feature would be very useful so that we don't have to adjust the placeholder manually when changing the RNN cell.
+We added C++ kernels for them purely for performance, since they appear often in large DL models and/or their gradients.
+But I do not know how?
+As far as I can tell, none of the conv functions tf.nn have anything related to batch normalization built in.
+However, unless there's a reason we should probably remove the underscore and make it part of the public API.
+Indeed Torch documentation indicates it is faster when one need the log-probabilities.
+I'm pretty sure this is intended behavior.
+Is there any example of overriding?
+I gave in and installed Linux on my Mac Pro.
+Rather, it just doesn't fit the mold of the other metrics.
+I would like to try the mesos containerization way to launch the image, but it is still a bit mess for me to figure out how to enable this and GPU support.
+I have not seen the implementation , just want to know if it is processing correctly or not .
+Tested on a fresh 0.10.0rc0 install, as well as in the tensorflow/tensorflow:nightly docker image.
+A quick search suggests that cublas has a matrix inversion function that might be appropriate.
+@jli05: https://docs.python.org/3/whatsnew/3.4.html makes it look like supporting 3.3 won't be any harder than 3.4, so we should be good to go.
+I just wonder could an option be added to plot more than two scalars in the same plot?
+We do have tf.sysconfig.get_lib() that gives you the path to use for the -L option.
+However, you can actually build tensorflow despite configuration errors now because f66b491 removes the if_mobile, if_android, and if_ios conditions(which had to be removed manually beforehand).
+This could be in any form, maybe as sort of "tags" or as key-value pairs, or simply as a plain old string called "description" or something.
+What does the structure of the Cuda binaries look like when you do apt-get?
+even though they haven't been officially made public yet, bidirectional RNNs are available in rnn.py, along with the other preliminary RNN architectures.
+I've implemented the change and it's working its way through our internal review system.
+Is this a scope issue or something wrong with how we use the scopes in layers?
+The only thing preventing the demo from running on API 19 is that it uses the camera2 api.
+If so, are there examples to show how it can be done?
+I have finished my new tutorial on how to use the pre-trained Inception Model and I have two suggestions to the TensorFlow developers:
+Would be greatly appreciated if you could do this, I need to test a project which uses TensorFlow on Travis CI and don't want to have to build TensorFlow for each Python version every time I test.
+Or are these 2 components sufficient?
+Here is a small failing test case for when someone gets to this.
+there's likely a lot more holes in float64 support, I ran into the following ops being float32-only in 10 minutes of porting: image_summary, max_pool and Square
+Is there any support for reading/writing compressed input files, e.g. with gzip?
+According to George Dahl's answer, there is currently no way to run part of a graph, then later run the entire graph without recomputing that part of the graph.
+No timeline for when we'll have this, though.
+Should we avoid this name in the thread title and documentation to preempt confusion via overloading the linear algebra notion of rank?
+In addition to these agent isolation flags, Mesos requires frameworks that want to consume GPU resources to have the GPU_RESOURCES framework capability set.
+Just out of curiosity, what is the gradient value at y = 1e-5 then?
+Does anyone know the status of this?
+We're also experimenting with support for defining "functions" in the graph that would basically allow re-usable components to achieve the same effect.
+did anything change or am I missing something?
+When t is past max_sequence_length, can it just break from the loop instead of continuing with zeros state?
+does exist, if someone wants to plumb that call through, I think we'd have LRN support for GPU :)
+When using ipython notebooks, one frequently runs the same cell without restarting the kernel.
+For example, what did you name the one for cuRAND?
+Anyone else facing this too?
+It would be nice to have such functions transparent with the built-in CPU implementations.
+Assigning to @danmane, who's been tracking feature requests for new versions of TensorBoard.
+To generate dense feature maps (e.g. semantic segmentation) the convolution and the maxpooling operators should have the option to define "holes" in the kernel.
+They feel similar but different enough to be frustrating.
+The following is a simplified version of the code which has the same problem.
+What's the status of bidirectional RNNs?
+It would be great if something like tf.clear_all_variables() were implemented, such that I could have a cell with contents: that I could run over and over again.
+An example: a few weeks ago I was on a deadline to finish training a deep net with torch when, having done something stupid, Linux decided that booting was no longer necessary.
+Thus in my opinion I would use tf.rint as it is in numpy. ;)
+Did you successfully run the "bazel run"?
+The code is now opensourced on master branch.
+I had no issues installing minus forgetting to change the path on the python package install,
+I'm not an expert, but I'd guess that making that work would be way harder than just supporting OS X GPUs directly in Tensorflow.
+On your second question: the core TF engine currently only sees the GraphDef produced by python, so the RNN example is an unrolled one today.
+Btw, I discovered that when I move my files from user_ops/ to kernels/ they compile fine.
+We don't support higher-order gradients for while_loop/map_fn/scan/fold.
+The ORC format does have a C++ reader, but it lacks bloom filters and a variety of compression algorithms.
+Variable names are by design not affected by name_scope, only variable_scope.
+Is this feasible?
+I don't think Cudnn supports convolutions for stride larger than 1.
+For instance, for the docker CI build for the nightly GPU devel image, this is a snippet from the log showing the output from the seventh test:
+What is the standard way to verify that "everything still works"?
+It exist under slightly different file name with replaced "-" with "_" (../components/tf_tensorboard/tf-tensorboard.html)
+And if not, can you give me an idea how to implement this behavior?
+Forgot to mention that the shapes shown in the graph visualizer are the statically inferred shapes from the python client.
+OK, but maybe update the source code docs to point out that debug_name must have a value (or fix it so that it doesn't fail if it doesn't.) May save the adventurous among us a few hours of debugging :)
+Very interesting, indeed, but it doesn’t proof that the problem is fundamental to OS X’s architecture.
+I'm porting a data input pipeline to tensorflow, but doing it a little differently than the seq2seq tutorials.
+LSTMCell allows the user to pass an initializer (used for all gates), but the other types of cells do not (e.g. GRUs).
+Also, what happens if you change ::tensorflow::StringPiece to just tensorflow::StringPiece (i.e., remove the ::)?
+It would make the workflow a lot smoother for developers who use Macbook Pro's with the NVIDIA chip.
+Release 0.7.1 wheels now are built assuming cuda-7.5 and cudnn v4.
+Also, could you mention which of these operations should be implemented?
+It would be nice to have a second API to such subroutines that work also without an assumption of a minibatch dimension in the input tensor.
+This is done, and should be out in git soon.
+Could you point me towards some library where I can see what the expected outputs of each of these operations should be?
+Any plans on adding forward mode AD?
+Yes, to add to what @ludimagister says: the conditional op will plug in zeros to the output & state past max(sequence_length), thus reducing the total amount of computation (if not memory).
+I may sound dumb, can you give me an example use case of having the machine learning on an ios client, please.
+We basically mimic the functionality of nvidia-docker so that anything that runs in nvidia-docker should now be able to run in mesos as well.
+These seem to be based on Google internal targets.
+Is there an automatic way to generate the runs in separate folders?
+are there examples or docs that explain how to actually use the 1D convolution?
+We'll hopefully have a 0.6.0 release out with this and other stuff fairly soon.
+Any ideas on how to adapt this if the indices are placeholders and not variables?
+I like that the tf interface is fairly numpy-like.
+SGTM, and going for a keyword arg would allow for easy deprecation once/if the Zeros class gets implemented.
+We realize that distributed support is really important, and it's one of the top features we're prioritizing at the moment.
+It's a nontrivial amount of work for a marginal gain, since the goal of the tutorial is to teach people how to use the API, not to teach them calculus.
+Now I am trying to work with it in Android studio.
+The current softmax implementation operates only on 2d tensors, and computes the normalization over the second dimension.
+But I think the problem will be the same, cause if you want to run a single image, the shape will not be the same..
+Looks like support for zlib compressed TFRecords was added in 90bad51
+These do not change the indices nor shape of SparseTensors, so all that's needed is transform the .values field on Python side in O(1) line.
+Are you saying your network has a bunch of outputs, and then you combine them into a single scalar that you are trying to optimize?
+because an embedding gradient is an IndexedSlices rather than a Tensor.
+Should we open a new issue or is this new behavior by design?
+It is not currently in the works, and it would be a great addition to TensorFlow.
+The white paper of TensorFlow mentions looping control within the graph.
+Something should already in the github repo within a coupe of weeks.
+It could be interesting to have CPU and GPU dockefiles ready for distributed than can run in a scalable way on Mesos (with Marathon and Kubernetes)
+Using -1 to reject is interesting, but it turns coding errors into silent incorrect behavior so I'm leery of doing it.
+How big are your model files after that?
+We're most of the way there: all the hard bits are hopefully done and only build issues and occasional incompatibilities remain.
+would be much better to give e.g. a simple derivative of a polynomial or something.
+However since my repository is in the early stages and isn't well tested, I think I'd like to develop it as a separate project and then port it as a TF pull request when it's more mature.
+Is that have any effect on the issue I am facing?
+When you run Docker on OSX, it actually boots a tiny Linux VM inside either VirtualBox or VMWare Fusion.
+This sounds like it could be useful, but is not urgent at the present time.
+can you please give a link with more info on the performance?
+I suspect the second method is more efficient, but it might rely on the tensors being in the right memory order (although I think tf, unlike numpy, only uses C order).
+We probably wont update 0.10 docs, as we are working on finalizing 0.11 now.
+What is your environment?
+Apple took great care in designing this modern language and how it compiles to native code, and now it's Open Source.
+I'm still getting libs between 75MB and 90MB per architecture based on a clean clone of the head last night and running build_all_ios.sh.
+Also, how large is the events file?
+We don't have access to the data, but we have access to the source code.
+How can i save GraphDef in python that can be used in C++?
+It also plays well with the existing exclusive and reverse options.
+My input Features are (pretty sparse) float arrays, so I'm not surprised that compression helps a lot.
+Do you know how if that's possible?
+Could you provide some example in the TF code where they are used?
+I was just thinking of implementing some Bayesian learning on TensorFlow and realised that I would need the Gamma and also in particular LogGamma (this is just the log of the Gamma function computed directly).
+Note that when you use your custom op in a larger program that has real inputs instead of constants, it will run on the GPU as expected.
+What would be a minimal code example, and what would be the desired outcome ?
+It would be great if we could verify a jpeg is our target image size before decoding so TF doesn't shutdown completely.
+Yeah, we definitely want to make comparing different charts easier.
+Would also like to see this.
+It would be useful to have a softmax operation that can sum over arbitrary dimensions in the same way that the reduce_* operations do.
+Any ideas on how this could be solved?
+I really need lgamma soon, can't wait ;)
+Does the neural net sit in the background and train itself with user's data like a cron?
+Do we have a fix for this?
+Any thoughts on why and if it may be improved?
+In some cases, the input feature vectors are extremely sparse and compression will reduce the IO dramatically.
+The RNN example has a Python loop.
+I think get_variable can now take a tf.Tensor as an initializer, which is probably sufficient if that tensor is a tf.constant set by a numpy array.
+In my use of this computation, I won't know ahead of time whether or not the intermediate computations produce [](empty tensor), but I also want to be able to get the correct gradients when this happens.
+Is there a python3 development branch?
+If so, adding mention of this option on the documentation might be valuable.
+After doing that I see a single-architecture executable for the simple example of around 14MB (about 11MB for the lib and 3MB for the app code I think).
+I'm curious why it is hard to upgrade to CUDA 7.5 and CuDNN v3?
+Yes, the latest MacBook Pro / Mac Pro models do not offer NVIDIA as an option, but, apparently there's a MacBook Pro in the works for 2016 that will come with NVIDIA graphics.
+Also following tips are really very helpful to implement numpy like indexing.
+I am using this version of the Inception model:
+Embeddings seem to be an important part of the problem.
+I think the reason that the JIRA was probably never resolved is that it's not clear that the fix being proposed is the right one.
+Are there cases that a run call produces a tensor but the tensor is only used in a subsequent run call?
+It would really help if matmul() and element-wise mul() were broadcastable, like in Numpy.
+Do you want an op that checks whether a file exists?
+StringPiece is faster than string in some cases, so we don't want to change the signature in that way.
+If so, would I be able to just use the corrected python module instead of the standard module without rebuilding the rest of the source?
+This is not a big deal, but you may want to add an identity_like function that theano has here:
+What should the API look like?
+Can you please run the CUDA benchmarks on OSX and Linux for something simple like repeated GEMM calls (to ensure proper burn in) and report back?
+At the moment the checkpoint format isn't public for a good reason: it's changing to a more efficient format and remains an internal implementation detail of the Saver class in python.
+I'm not sure if It is the expected behaviour, but it might be.
+Actually, I'm not sure that flag is the issue.
+We are working on a system that makes this easy.
+Processing a single image for demonstration purposes, including all preprocessing and reconstruction steps, took 1 min 15 seconds on OS X, and 20 seconds when I was ultimately able to get back into Linux.
+Unfortunately, the current code for transpose does template instantiation for each dimension.
+I don't see any obvious debug logging, where can I expect to find the stack trace?
+I am conflicted on whether it should be called rint or round.
+Our current internal distributed extensions are somewhat entangled with Google internal infrastructure, which is why we released the single-machine version first.
+Is there some hope of fetching and feeding list of state tuples for MultiRNNCell in some way.
+This is essentially a transpose followed by a reshape.
+If you read through, Google felt there were issues with the PR, but this has really been in their hands for a long time.
+If there is a proposal for Eigen's OpenCL/SYCL implementation, we will see what we can do from Intel side.
+In order to keep the thread compact and easy to read, please consider just hitting "subscribe" instead of +1ing.
+or is it still to come as you said in the next release?
+my earlier comment only meant to point out which part of the program is triggering the error to my colleague.
+Do you have plan to release python 3.5 version in near future?
+I think just exposing the source code documentation would be very helpful to people.
+I don't know the tensorflow internals, but it seems to me that this would be very slow.
+Since it would be nice if the new functionality allowed Tensor and IndexedSlices to be mixed in the same call to Print, the best way to implement it might be to add an optional list of extra strings to Print, perhaps as a "extras: list(string) = []" attr.
+TensorFlow binary by default carries compute capability 3.5 and 5.2.
+does the "nesterov momentum" perform much better than than "momentum"?
+One example is tf.nn.softmax which assumes a 2-D input of shape [batch_size, num_classes].
+What could be wrong with my gpu setting?
+Is it still an issue?
+tf.einsum is relatively recent and was not fully baked in 0.11.
+When can I expect the fix to hit github?
+It seems nice for us to implement functions that checks a validity of given network, if we've not done yet.
+In that case, the cumprod needs to be performed over the reduced dimensions, and not over the remaining ones.
+I give several examples of this in the tutorial (link below).
+I didn't see tests for the other gradient functions, but I submitted a pull request for the two gradients. #3807
+This could be a turn off for some people who already have been working with 7.5 cuda for a while.
+It seems to me that implementing such functionality would be a lot more expensive when done at the Python level than at the C++ level.
+It looks like we could use a cleaning pass through some of the image ops.
+Further, I suspect a LogSoftmax can be implemented more efficiently than a Softmax (it should at least saves a log call, if one is interested in the log-probabilities; plus it is less sensitive to underflow/overflows).
+I am currently working with bidirectional RNN but asking for different batch_size in training and testing.
+Please, support 3D convnets.
+An error would be nice, it could save other beginners a headache.
+My point is, the folks who are very eager for Mac-tf-gpu support so they can run tf on the gpus in apple laptops, which aren't remotely cuda-optimized anyway, I think they're going to find that the book isn't worth the candle, and there are easier ways to accomplish what they want.
+Ok, so I rebuilt from the 0.8 rc0 tag and can confirm that the the change in #1926 is in my tensorboard/BUILD file.
+I think those solutions are meant for Linux Docker hosts running Linux Docker images.
+This Inappropriate ioctl for device is seems due to not matching my webcam resolution with the emulator resolution,
+I have installed tensorflow r0.8 only CPU version.
+I can reproduce on the master branch, on r0.10 it is working properly.
+I just had this need, and here is mine:
+I attached a short PPT to illustrate the a-trou Algorithm.
+I missed that pull request when browsing the history of issues.
+Moving stuff out of Python to C++ isn't relevant for PyPy, but the improved C API might make it easy to write a separate PyPy interface.
+I have been working with this same codebase for months and before now nothing like this happened, but now it is 100% reproducible on my machine with this specific (code, driver version, etc), so it is not something that effects everyone, but rather pops up randomly.
+Wondering if there exists a method that do the same?
+To reiterate what I said here, we are working on making a distributed implementation available, it's currently not in the initial release.
+FYI to anyone looking at contributing a fix for this -- there is some movement internally.
+can you please write the detailed command?
+Fractional striding on 1d convolutions would be helpful to downsample 1d signals.
+I will try with a more recent gcc (e.g. 4.9.2) to see if the compilation problem disappears.
+Yes, and we should have the star operator that converts a vector to that matrix as well, but we should still have the normal cross product operator for efficiency.
+Well, the code I took is already more or less mimiced on the eval script.
+What error do you get if you only make the line 134 change?
+I typically wait for about one day before doing so though, since that gives me a change to check that the Eigen nightly regressions tests are clean before updating TensorFlow.
+I just pushed an initial version of the distributed runtime, based on gRPC.
+Can you be more specific about the feature you're looking for?
+Google Kubernetes and Docker are all excellent examples for how to use github maintain a huge and global scale open source project successfully.
+Does that work for your purposes?
+Is there a way to improve the TensorFlow runtime duration?
+This would really help out my work flow, especially I can get other frameworks to utilize my GPU / CUDA on the Mac.
+My guess is that you are running source code from HEAD with a pip install from 0.6.0.
+I will say, I observed this with torch, R, and tensorflow, all of them.
+Under gdb I found that multiple threads are calling BaseGPUDeviceFactory::CreateDevices simultaneously.
+What errors are you seeing?
+Do you have any specific use-cases in mind?
+An example to reproduce the issue:
+There is no conv1d method and it would be very welcome.
+The legacy MR RCFile format is very, very Java dependent and I wouldn't want to support that.
+Many developers use MacBook Pro, and TF doesn't support GPU integration.
+It would still be nice to have dedicated (and parallel?) ops for this, though.
+It looks like you have to tweak gpu_device_factory.cc, but from the trace it's clear that it's in the eigen ReduceInitKernel, in the dense softmax.
+It would be great to see one point corresponding to the value instead.
+The function requires its input to already be a tensor.
+It looks like the pip_package BUILD file just references tensorflow/tensorboard as a directory, so I'm confused how it would skip the css file.
+Why not also implement tgamma from the same section of "cmath" header, just so that all four functions from "Error and gamma functions" section would be available?
+Note that the current implementation just uses conv2d under the covers.
+For example, many of mesos's protobufs still contain required fields.
+What does it mean by dynamic calculations?
+would you mid elaborating a bit further on how to use a BFGS optimizer?
+I'm going to try a shared library next to see if I can reduce the build size.
+Should I leave this one assigned to you?
+Both of the following issues dealt with this and debugging would be easier if the error message was more explicit.
+In the current version it's been removed (as threatened).
+But in any event, using the Mac as a development environment (including GPU support) should be supported.
+It would be helpful to throw a Python error and document this limitation, as ops produced by similar functions (eg conv2d) handle the scenario just fine.
+Here is a snippet of code from my current project, which I believe corresponds to "sampled decoding", as requested here.
+Out of curiosity, have you set your LD_LIBRARY_PATH to your cuda installation's lib64 directory?
+Should this bug just be the catch-all for now?
+Do we have a pip czar?
+I get the same result even with your code specifying tf.device("/cpu:0").
+It would be a great addition if I can also use it to customize other parameters in my custom model.
+I believe this doesn't accord with an a priori mathematical notion of the derivative of a vector.
+It seemed odd to me that these docker images weren't working, since you use them for CI.
+I don't have any links to provide or anything like that.
+These are believed to be harmless, but are obviously annoying.
+For example, this post in 2010 from Accelereyes (now ArrayFire) shows subtle, but not huge differences in performance for various mathematical operations.
+Also, I saw that there are discussions (#2237) about supporting Recursive NN
+Which version of bazel are you using?
+If I understand correctly, tf.multinomial is general enough such that a tf.choice is not necessary to implement sampled decoding.
+This issue is a follow-up to this posting on stack overflow.
+It is our understanding that activation names generally fall under name_scopes, which is consistent with actual op names in the output above.
+However, some steps are not the easiest for users who are not familiar with GPU programming.
+GridSearchCV is a great way to test and optimize hyper-parameters automatically.
+Ah, if the model is only 10M, then my hypothesis about protobuf overflow is almost certainly wrong.
+Below is the stack status printed using gdb python, in case you want to look at it.
+If so, could we see an example and/or be pointed to the documentation where this is explained?
+It'd be pretty hard to support gradients of non-scalars with our current setup, since it would require every gradient function to handle extra rank input.
+When set to True it maintains the status quo and returns None in all cases.
+Having tensorboard read pbtxts directly from the logdir is possible, although it's a material departure from the way TensorBoard is currently organized (right now it always tries to read from events files).
+Could you provide some hints as to how this might be done?
+Yes, we do plan on making it available as open source, and we'll welcome contributions!
+It'd be pretty hard to support gradients of non-scalars with our current setup, since it would require every gradient function to handle extra rank input.
+I don't think it's a problem with the installation since some examples run properly.
+If you have suggestions or some pointers to where to look for answers I'd really appreciate it.
+Among folks who encountered this problem, what is common is that all used gm107 and gm108 based GPUs.
+But I think it can come up with current pool as well (maybe after some unrelated code changes, or maybe just due to unlucky scheduling order).
+I don't have background information as to why the dtypes did not include float64.
+Inception is a model that does fairly well on this dataset and we published the code so others can build on it and improve it.
+Thanks, removing the contributions welcome tag, since this is being worked on.
+We don't really have a test infrastructure yet to make sure we keep it working, which is why we don't build the binary package for it.
+If not, is there a workaround to input multdimensionnal time series ?
+Does anybody know whether cudnn supports this?
+May we assume that TF is going to use semantic versioning for releases (ie. major.minor.patch)?
+It seems for you, the whole TensorBoard is not working, not just a broken summary icon.
+We have some internal code that does this, am planning to open source it someone this summer.
+Note that while this is progress, and you can theoretically remove the with tf.device('/cpu:0') line, it wouldn't work completely, because many underlying ops are still not GPU enabled (you can see this if you use with tf.device('/gpu:0') in word2vec_basic.py).
+Hm, when you set ./configure, did you specify cuda compute capability to 5.0?
+Are you currently working on this?
+The ImageNet dataset is a benchmark dataset that's been widely and successfully used for research.
+May I know, When will the tensor flow for iOS will be out?
+This is too broad of a request, finer grained issues for individual ops are probably better.
+I agree add ".1" for OSX is a good idea.
+I tested with emulator with the config given above except this emulator uses API 21 and it gives me in logcat:
+Wondering if there is a way to input data if m=2, 3 in the LSTM tensor flow ?
+I suspect you'll encounter some nuances. E.g., some operations may not have support for complex64 as time being.
+Currently if you call gradients(ys, xs), it will return the sum of dy/dx over all ys for each x in xs.
+Can you open a new bug for this, explaining what behavior you think is correct?
+Do I have to re-build tensorflow from source to set --brain_gpu_sync_every_op or there's an easier way?
+Even just a clearer error message in this situation would be a big help.
+Do we have a pip czar?
+Would you consider adding such a layer at some point?
+It would be great if further comments were limited to technical discussions about Python 3 support.
+Here is a small self-contained example that demonstrates the issue:
+Perhaps this is desired behavior, but I would have much appreciated a more descriptive warning at least, which would have saved much debugging.
+We are working on a fix, after which you will be able to pass a Variable as a function argument (without using the Identify).
+As a first cut, I think having these ops transform only the non-empty entries makes sense and is simple to start with.
+any idea if something changed from float to double?
+Fractional striding is hard to implement efficiently using anything like direct convolution; normally I'd just write it using FFTs (which already works).
+How can we create an RNN using C++ API in TensorFlow?
+There doesn't seem to be a convenient tensorflow function to compute the Jacobian or higher order derivatives.
+Meanwhile the one in seq2seq seems to be reasonably efficient, at least it's not a bottleneck - check it out.
+As a result, their commit history looks much cleaner:
+It seems like they wanted to make it convenient to loop through filenames for internal reasons, but for some reason didn't need it for any other file type.
+Hey, the changes are now in (more concretely, this commit).
+Specifically, I think TensorBoard is never detecting that the file exists, and so isn't loading anything.
+We also don't distribute our binary package using avx/avx2 optimizations so they can run on more platforms, so it's possible things might run faster when running from source and building with more optimizations for your platform
+According to someone more knowledgeable than I, people generally do such contractive autoencoders by writing out the first derivative manually.
+Could you please add some details how to build tensorflow setting it explicitly to 5.0?
+I want to improve it in the future, but it's not very high on my queue at the moment as I'm prioritizing features that are domain independent and thus useful to every user of TensorBoard (general usability, hyperparameter search, etc).
+That way, anyone who doesn't realize and treats it as a normal tensor in a way that doesn't take advantage of zeros will throw an exception.
+Are you printing variable names or just tensor names?
+Well, I wouldn't be surprised if the CUDA drivers (or the NVIDIA drivers for that matter) for Mac aren't all that optimized at this point in time, considering Apple is not offering any laptop or workstation with NVIDIA video cards.
+gRPC and tensorflow's distributed support would be more helpful for large networks.
+Agreed with @alexatknit, seems like we have the primitives to implement this already
+Does anybody have experience about "momentum" and "nesterov momentum"?
+There are several reasons why we can't just switch solely to github today, but since it is a pain for us, we're motivated to try to make things better :).
++1, for all the reasons mentioned above
+Are there automated tests in place to ensure that Python 3 support isn't broken in the future?
+We would appreciate if you could create a "Books" section under Resources to feature books written on TensorFlow.
+Users generally find the pretrained and retrainable version rather useful since it offers a way to train a custom model much faster.
+The official upgrade will happen when it is ready.
+TensorFlow in its current form is extensively tested with Cudnn R2
+That's strange, because I think grpc::DeserializeProto() (#1 on the stack trace) no longer exists in the 0.14 release of gRPC, which we're now using.
+It installs fine on 14.04 with py3 but we have not tried 15.10 yet.
+I completely misunderstood your point, for some reason I assumed you meant checkpoints.
+The doc talks about this new feature and show users how to use it.
+But I'm not sure if this a bug or an enhancement until we have some profile data.
+Performing a concat & then a split of the gradients will still slow down calculation, so I would not modify existing RNNCells with this behavior.
+Using the XCode IDE, Instrument Profiler, Swift Language and new Metal API, developers could easily program script level, super-optimized (Clang LLVM), super-fast CPU/GPU compute software.
+So I think we might be able to get there. Just may take a bit of rework
+It works fine installing older releases of tensorflow with pip but not this one.
+Currently there is no way to do this with 2d convolutions as mentioned by @alphaf52 .
+Automatically creating nested placeholders would be useful.
+Maybe we could click the arrows to open a window that showed info about the tensor shape (and maybe other info too).
+It's clear that we need more GPU ops, but we'd love to understand which ones people are actually running into.
+Does the logsoftmax be added?
+Just a guess: I would believe your version can parallelize since all the ops are independent.
+You're talking about the input shapes, not the state shapes. rnns accept inputs and emit outputs and state. I'm asking about the shape of the state.
+I wonder if there are diagnostics we could print (dimensions etc) of buffers vs expected op input
+Is it possible that this gap exists only in OSX?
+are there any news on that?
+Bidirectional RNN code is checked in internally, will go out some time soon with the next release (within a few weeks).
+Have you tried using a TensorArray?
+Check out this thread... #664
+Do you have a idea for a fix you could send?
+In the long term, it would probably be best to get the specialization into Eigen itself, or to find another fix
+What happens if you run on only one thread?
+Are you possibly not using the latest version of the repo?
+Are there any specific tickets open?
+Could you give some more concrete examples of exactly what you'd like to do, and clarify whether it's merely awkward or impossible?
+I find that SSE2 vectorization is a feature of eigen, so adding addtional code to tensorflow may be a good choice.
+Therefore, IMHO, it would be beneficial to have the framework automatically merge identical ops.
+I don't think the issue that @davek44 is raising is gate-specific initialization, but rather just initialization period.
+If someone can drop API level of the app to 19 I can try it on my phone?
+Ideally (assuming reasonable API/ABI stability on NVIDIA's side), TensorFlow should not be dependent on specific older versions of CUDA and cuDNN.
+We should fix this and add a unit test.
+Looks like a breaking change: in my case forward pass is still okay (with masking), but gradients are now stuffed with nans .
+I am running with the official NVIDIA-Docker image, GPU Enable:
+Did you Ctrl-C ?
+With the wonderful addition of #664, installation installation instructions for OS X with GPU support would be very helpful.
+From an API perspective, how do you imagine this working?
+Further explanation are needed to document the behavior in this case.
+From your earlier comment, it looks like you might want to copy that global.css file to the following location on your system: /usr/local/lib/python2.7/site-packages/tensorflow/tensorboard/lib/css/.
+I guess @skearnes meaning compressing the training data instead of the checkpoints.
+Is it already available?
+You should see an informative error message if you try to do that.
+I'm a bit surprised those variable names are showing up as unicode.
+I wonder if this is related to ptx-sass compilation somewhere.
+I have modified the original example where I inappropriately named some variables, it should be less confusing now.
+For study and debug purposes it could be very useful to view computation network graph in tensor flow, without having to dump any histogram/learning data.
+I'm concerned that we're not properly setting the IS_LITTLE_ENDIAN flag in the OSS build:
+i'm working with bidirectional rnn and it would be nice that it had an option to have two different initial states for different data to be trained.
+If we could go back in time as NumPy developers, we assuredly would change dot to work this way (now we cannot, because of backwards compatibility concerns).
+Or any way to reproduce the behaviour.
+I can't get it via anaconda.
+Both Titan-X and GTX 1080 are very popular choices.
+That would require some deeper changes to Eigen so that it knew it was in a worker thread and could adjust its behaviour accordingly.
+How does the neuralnet learn when it's on an iOS client?
+So having a solution that specifically handles tensorflow's tensor would be amazing!
+Feature request: Support for dtype=tf.int32/int64 in tf.random_uniform.
+Does "All the misaligned memory reads came from Eigen kernels" mean I've done something wrong?
+A lot of project abandoned it and turns to github finally.
+It is unclear whether it is a real hang, or it was just the kernel run extremely slowly.
+I think that the Eigen FullReductionKernel was probably changed btw 0.9 and 0.10.
+But I haven't gotten around to caption-generation yet and I suspect it's quite a bit more complicated to implement.
+The ckpt file also points to the correct locations and is reading from the right place.
+_valid_dtypes now includes float64, changed in #2389.
+But it's just as easy to use _input_producer with another data type.
+Frankly speaking, I can not understand this "one-line-modification" is blocking for months...
+I think having GPU support for Mac would really help in not just the performance front, but allows us to debug and check any GPU specific issues when running some script locally, and be able to fix them quickly, before sending them to a EC2 or some remote GPU server.
+All of the content on tensorflow.org (without the fancy styling and some math formatting) is also available on github, in the tensorflow/g3doc folder.
+Perhaps this could be implemented using partial_run (#672), but I suspect a native c++ implementation would be vastly superior.
+did anything change or am I missing something?
+That was with torch and cuda 7.5 and cudnn v 4.
+the current RNN is statically unrolled, there is no (not yet) dynamic unrolling based on the length of the sequence.
+Any word on this?
+I installed it the following way :
+Should I reassign?
+I tried writing up some code for it, and since the project doesn't accept pull request as of now, wrote up a blog post about it.
+It looks like nonsharded savers save to the chief worker (if called from that process) and the sharded saver saves to the parameter server, weird
+i have download it and rename to tensorflow-0.8.0-cp35-cp35m-linux_x86_64.whl to install it
+It looks like there are hundreds of direct uses of tf.gradients within Google, so I don't think a silent performance breaking change is okay.
+I really did not intend to send things in this direction
+Anyone can help this?
+I think I should definitely be able to get a None gradient to indicate that that l2 and A_ph are disconnected, rather than an exception.
+It seems like a reasonable thing to mark "contributions welcome", but we should get your input first on how best to express it if so.
+We probably should standardize to one way of doing things, although even in the presence of functions functionality like this seems valuable to extract things from an existing graph.
+Everything that doesn't have a full tutorial associated with it should go into the zoo (which we will announce shortly).
+I think it is complaining about not finding "crosstool_wrapper_driver_is_not_gcc".
+I also want an operator that makes a vector v into the matrix V for which Vw = v x w.
+Is it the Python client that calls saver.restore() or the parameter server that runs the restore op?
+The saver seems to be very fragile in distributed mode, it could use some polish.
+This issue is a feature request to add support to tensorflow to implement networks with stochastic depth
+Really hope tensorflow will use github for all the cooperation workflow.
+Could you try this branch?
+How are you providing args to the script in the first place if you're not executing it as main?
+I realize it's possible to do using the existing rnn API, but given all the intricacies of padding and such (especially in the reverse direction), it would be nice if this had builtin support.
++1 for Java/Scala
+internally we've been working on iterating the API for RNNs, and we were happy enough with the current API to use it in the tutorial, but we're making sure it's solid before promoting it to the public API, since we'd then have to support it indefinitely.
+I checked the path and the model indeed is saved.
+Is there a reason to not change _valid_dtypes on our end?
+We'd like these ops to work on SparseTensor.
+Do you prefer that I open a different issue, for each failing Notebook Example or I create a main Issue and I list all the failing Notebooks inside it ?
+RNN's are very sensitive to the initial weight settings, but only the LSTMCell allows the user to specify an initializer.
+One thing I thought of is that I would like to compute the frobenius norm of the Jacobian of the log probabilities for use as a smoothness penalty much like the smoothness penalty used in a contractive autoencoder.
+With introduction of Thunderbolt 2 and 3 technology, external GPUs will likely be supported in the near future.
+Emulator support for cameras is outside the scope of Tensorflow support (I'd try stackoverflow for that), but feel free to open any additional TF-specific issues you have with the demo.
+Guys, please let me know if you plan to implement java 'wrapper' classes which will call c++ code.
+That's a good idea, but it will require some thought because the graph visualizer doesn't current get information about the execution (other than the computed summaries).
+Also none of the optimizers override the _valid_dtypes() method.
+Is there a reason for why an empty bottle neck tensor in the gradients produces division by zero though?
+In my opinion doing code review on GitHub is horrible except for very small fixes / tweaks.
+We probably want to add a test case to guard this when we fix it.
+If you have an approach that doesn't involve breaking up the weights into 4 smaller tensors, we should consider it for merging.
+Thanks, that's a good feature request.
+It would be great if the examples worked on GPUs.
+Also, what's the best way to generate a graph protobuf?
+I think the .1 makes more sense, so I'd rather someone figure out a way to special-case this for OS X rather than change it back.
+What do the think about the Zeros solution?
+If someone was willing to write a kernel (CPU and GPU) and benchmarks for this, we'd be happy to accept it.
+But Docker doesn't run natively on OS X like it does on Linux.
+I've never used Gradle before, but the project you linked to seems to be configured to only produce armeabi-v7a builds.
+When launching an agent, both the cgroups/devices and the gpu/nvidia isolation flags are required for Nvidia GPU support in Mesos.
+BTW, there's a list of TensorFlow books on https://github.com/jtoy/awesome-tensorflow
+We're in the process of moving functionality from Python to C++, at which point it will also be exposed through an extended C API.
+I think it would be useful to compare what CUDA launch parameters are being used for the reduction.
+This is a fundamental / elementary mathematical operation and I suspect it can be more efficiently implemented in C++, for example as in this example.
+We have tracked the cause of this down in to tf.contrib.layers.
+someting that would clearly define gpu compatibility would be great.
+As mentioned above, the Inception model thinks that a picture of Elon Musk shows either a sweat-shirt (20% score) or an abaya (17% score).
+Is the (core) functionality coming anytime soon or no?
+Has the reduced footprint configuration been added to the main repo?
+AdaDelta (http://arxiv.org/abs/1212.5701) is a popular training algorithm for Neural Network.
+Is this request specifically for truncated BPTT?
+For example, it would be nice to complement existing tutorials, e.g. mnist, and show additional (final) step to get prediction out of the trained model.
+however, there is no mention of this in the tutorials.
+Note that this is without any specific inputs; only knowing they'll be a vector and a matrix instead.
+Is it possible that your code is 2 days out of date?
+You're correct that (as far as I know) there's no easy way to do that in current tensorflow.
+That is strange because custom_op_grad(op, grad) just returns grad, which I guess should be the same as the gradient calculated in the second case.
+It would be nice to a corresponding int_input_producer for producing a queue cycles through labels, for instance.
+Any updates on this?
+For the other optimisers like Adam there is a python function that does the equivalent optimisation and then the test checks that the real implementation comes up with the same result.
+Fractional striding on 1d convolutions would be helpful to downsample 1d signals.
+I think if you've already got the drivers it should be only the libraries but I'm not really sure on that.
+This could allow users to easily port common components of different frameworks from an 'origin' graph to a 'target' graph.
+I pieced together a lot of the scattered information on compiling for C++ and wrote it up:
+Can it possbile to use other ways?
+Other than that, I don't think there was anything else I had to do to get the calls to run, but that's when I started seeing different output and didn't have time to debug.
+From my understanding, there is not a very huge difference in GPU compute performance of an NVIDIA card accepting assembly language instructions compiled form OpenCL (now the Metal API) libraries and assembly language instructions compiled from CUDA libraries.
+The awkward thing about that is that cumprod on multiple axes at a time is a very strange operation.
+It looks like a bug introduced recently, and could potentially cause other problems.
+It could be done either in C++ and Python, but is probably easier to do in C++ since then the index manipulation doesn't have to be TensorFlow ops.
+It is a fairly complex script that is training a network for object detection using methods similar to YOLO and SSD.
+Or is it possible to implement it using existing GPU ops?
+Anyway, for example the abs + it's gradient would probably make for a better example?
+It would be great to catch the out of range error in python, so things could be logged and shut down properly, instead of just break.
+I'm not sure how else this library would be located (LD_LIBRARY_PATH is only searched on execution, not compile-time), so I'm thinking this problem might not be specific to my configuration.
+I'd like the way to take the derivative of ys wrt xs where both are vectors and have a Jacobian matrix returned.
+A full Python implementation just for the tests seems brittle as the Python implementation could just as easily be buggy.
+I am wondering how can I run Distributed Tensor Flow on Top of Spark
+Do you have a basic block size like (or such as) 256 , 512, 1024
+In my opinion, spark+tensorflow is mainly for data parallel, and are useful for samll scale networks.
+It's not an arbitrary set of training images.
+Just a minor comment: NumPy einsum supports arbitrary number of input arrays, but I guess it would suffice to support only two input tensors in TensorFlow.
+Can one of the admins comment on this?
+So part of what's needed is permitting compilation with 7.5.
+When you run it in the single-machine mode, are you using the tf.train.Supervisor?
+Maybe a reader randomly acesss hdf5 data and feed the model with reasonbale memory is still necessary.
+One reason is that the following code would work naturally.
+Most cells in core use a merged weight matrix for all gates for performance purposes, making gate specific initialization difficult.
+If the documentation had it, that would be even better.
+How are you running TensorBoard?
+what's the status of graph functions?
+I think configure need an option to decide target environment.
+As a question, is there a local version of the patch I could use?
+I think this might be the current best how-to on how to produce timelines :)
+Returning zeros state is different from returning the state at max_sequence_length, isn't it?
+Is the code within github now?
+The PR makes it easier to test with different versions of cuDNN and Cuda by making the version of each framework a variable in the configure script.
+Here is my version of CUDA on the host server:
+However, I can't reproduce this behavior on my Mac or Linux.
+tf.reset_default_graph() is probably the closest thing we have to this functionality, although it blows away all ops and tensors, as well as all variables.
+I suspect there is some sort of incompatibility there.
+I don't think that's supposed to happen usually.
+Is the bug a complex one to fix?
+Note that XLA will likely have no trouble with high rank transposes, but that may take a while to land and wouldn't necessary be very efficient (for the same reasons I haven't found a fast high rank transpose algorithm).
+I think I could do a denser logging or summary to know what actually happens, but it would much more convenient when a NaN number is taken as an exception, since no futher ops can do anything about it(I could file another issue about this if the team prefers).
+But it is a low-end GPU, out of which you might not see a very big speedup.
+For some reason applications seem to have an easier time using more cores on Linux.
+In general though SequenceExample could use better documentation as it's a very useful feature.
+This is surprising because these rules have been in for several months without causing this issue, so something must have changed recently.
+I think it's complaining that there's no OpKernel registered for Conv2D that supports double on GPU.
+Notice: There're still some unsolved issues in tfmesos and it's not production ready.
+here's the tf-related part of the code above, if that is be helpful to understand device placement
+The elapsed times for 100 training steps were 4:20 and 14:36, respectively.
+I would really appreciate, if you guys can port this stuff to tensorflow.
+Closing this now as your original issue has been addressed (thanks @miyosuda!) and there are complete instructions for adapting the TF demo to api level < 21 in #419 now.
+Are you using GPU?
+We would need to update the kernels and then the shape function, but it seems possible.
+The implementation could be compared to what scipy gets, but then again bringing in scipy as a dependency just for the sake of one test seemed, well, excessive.
+What block size are you referring to?
+Is there any distributed version of TensorFlow that could work on multiple machines?
+I'm not sure if it would work for you, but you should give it a try.
+I filed an issue on it a couple weeks ago but haven't heard back.
+RNNs are available in python code.
+In general the C API is unforgiving when it comes to usage, but this should be an easy and cheap piece of validation code to add.
+Currently there is no way to do this with 2d convolutions as mentioned by @alphaf52 .
+If you just need the h state, that's the output of reach time step.
+I guess that the Scipy optimizer makes a sequence of run calls in a TF session?
+I'm not sure the CPU vs. GPU aspect is the only issue, since I'd be surprised if scipy used the GPU for matrix inverse.
+Bazel has an option to build a shared object out of a binary: http://bazel.io/docs/be/c-cpp.html ,namely linkshared.
+Dask looks interesting project but the drawback of the blocking algorithm is that it's not memory optimal.
+It's possible it has something to do with padding or the shape inference difference between us and cudnn.
+Your tutorial on deep dream was great !!
+(it would be helpful if that was the error message instead)
+Is it working for distributed version?
+Some functions in the TensorFlow standard library makes an assumption that we're always feeding minibatches.
+Our python code is supposed to return C++ status errors, which can then be handled by users.
+If you aren't providing args, why is the expected behavior for FLAGS to be not be None?
+Blaze (Bazel) uses both Gerrit and GitHub.
+So just to be sure, the way I'm controlling threads is by invoking a session this way:
+CUDA provides examples that can natively be built on OSX and Linux.
+Is there a test suite to validate changes?
+My guess is that the two stumbling blocks would be TensorFlow's reliance on NumPy in the Python front-end, and SWIG for interfacing with the C++ backend.
+What version of CUDA are you using?
+Specifically, we'd need to make IndexedSlices accept multiple index arguments so that the gradient of tf.gather could build one IndexedSlices and then build a deeper one for the next tf.gather call.
+I might be able to help with implementation if there is such a plan.
+To help reduce the size of apps, there should also be a lite version of the libraries, possibly based on the Bazel android_tensorflow_lib_lite target.
+GPU support will be included in Marathon 1.3 (being released in the next couple of week).
+Note for anyone who comes across this thread: tf.map_fn is an unrelated thing involving control flow, not something related to mapping over extra rank tensors.
+Since you tracked it down, could you say where in TF code this appears?
+how did you fix this?
+If so, how can I go about implementing a solution?
+I was initially confused by the use of "rank" to describe the number of dimensions of the array.
+Does 0.10c release now contains this ?
+On your first question, see #208.
+I have checked the master branch, and the typo has been fixed by the commit which @ivmarkp referenced.
+With PR #2585, we now have Linux Python 3.5 whl files built and tested nightly.
+This seems like reasonable behavior to preserve, since we're unlikely to ever add any kind of checking to these ops (doing so is problematic due to numerical error) and we're unlikely to normalize due to speed.
+I'm not sure this isn't the desired behavior.
+Perhaps a pure python implementation is the way to go?
+it is worthwhile to add trigamma or polygamma from cephes.
+It has been a terrific system for me so far.
+There is no conv1d method and it would be very welcome.
+Fixing cuDNN is a must have though.
+As far as I can tell, none of the conv functions tf.nn have anything related to batch normalization built in.
+On the other hand, I'm not sure how easy it would be to add Mesos to our test matrix, and I don't want to put our testing team on the hook for that.
+I think it would be useful if "tensorflow/core/kernels/bounds_check.h" was included in the python package, so that FastBoundsCheck() can be used in a custom Op when building against the binary package.
+To me both the Metric and Monitor patterns feel too restrictive to me, for what they are (basically run this thing in the training loop somewhere).
+Could you explain why None is preferred over 0 ?
+I'd like to request support for bidirectional RNNs, as these are rather canonical architectures.
+I suspect it's historical -- in the beginning few ops had working float64 implementations.
+The softmax classifier apparently outputs an array of length 1008 - but there is only 1000 classes in the data-set.
+I have no idea, I never printed them out.
+Does Mac manage also the GPU threads?
+we are trying nvidia-docker to help us allocate GPU resources, base on @3XX0 's suggestion
+Yes, we will likely only support 3.3+, possibly 3.4+ (I'm not sure what the differences are, but will look that up).
+I want to know if there is a way i can do this.
+I plan to add support for this but it won't happen until at least January.
+Unfortunately there are a bunch of them for a variety of different ops, and the fixes look different in the different cases.
+Would it be possible to visualize the values of scalar summaries (e.g. from a chosen or simply last event) directly on the graph?
+If the intent is for TensorFlow to be a general purpose computational tool for machine learning there should be more support for special functions (i.e. the functions in scipy.special).
+It would be really nice to have a gradient operation for tf.cholesky similar to Theano's CholeskyGrad.
+I think this is best implemented with reshape and transpose followed by the existing functionality.
+I've attached nvprof.out files for each of the two cases.
+Anything using a Dirichlet / Beta prior distribution will utilise the digamma function, for which the gradient is the polygamma.
+Can you provide a minimal example of using the loss_callback with fetches ?
+Not yet sure whether this is a bug in cudnn or how we were calling it.
+for completeness can you show how this is done?
+There are many books on TensorFlow already and we haven't read any so we think it would be somewhat inappropriate to endorse some of them.
+The described convenient behavior has changed somewhere between versions 0.9 and 0.10.
+This is on my roadmap, actually.
+There are a lot of reasons for this, not the least of which is that if you're setting up a new machine, its a lot easier to get a working 7.5 installation with a current distro than a working 7.0 installation.
+Is there some specific reason it's missing, or is it in the works?
+When you submit a PR, we will have Jenkins test it, and this will build and test the code in several different environments.
+Numpy has einsum which is very useful for formulating and computing tensor operations efficiently.
+Can you let me know if you're seeing that reduction too?
+Is there a road map link to see which issues will be resolved / new features will added first the next weeks?
+But as part of this improvement, we'll likely make the checkpoint format public through some C++ helper classes, and a C-API to go with it.
+Can we get support for cross products?
+We now have a comprehensive solution for truncated BPTT; introduced in 955efc9.
+It would be really neat if the tensorboard could additionally show the predicted and/or given label for an image in the 'images' tab.
+I'm more looking at Tensorflow as a shared library to make it more code / platform agnostic to talk to (my platform of choice being PHP/HHVM).
+desperately need a java interface to use tensorflow in enterprise web server
+There are checkpoint loading util functions but they are not integrated with estimators yet.
+On current head I've built & used pip packages on both MacOSX and linux and found that the css file was included properly.
+I'd really like you support from 3.3 up to the latest release of Python (currently 3.5; then 4.0 in the future).
+Is this expected behavior?
+Many clusters have the old CentOS on which TF doesn't work
+The variable name is prefixed by state/ and I have helper functions to return a dictionary from name to tensor containing all variables matching this prefix.
+Tensorflow should make this operation too.
+Do you want to upgrade?
+For the backward pass, I first reversed the input using array_ops.reverse_sequence(), then reversed the output using the same function. I also used feed forward layers in between the BLSTMs.
+It can be done, but I'm a little unsure if the Tensorflow build system can do it out of the box.
+Aren't they supposed to be managed by the GPU controls and the drivers?
+I'm currently running experiments on Travis with Tensorflow to see how it reacts/accommodates to C shared object.
+My conclusion is based on doing a google search for openCL vs. CUDA.
+Using timeout with notebooks is very useful in case you dequeue an empty queue or enqueue a full one.
+What version are you using?
+This is because CUDA 7.5's libraries have the .7.5 suffix rather than .7.0:
+Yes, that would work, but it would great it can be done without losing sparsity.
+We don't have one listed in the spreadsheet.
+Any plans to include an equivalent in tensorflow?
+As known to all, google services are not available in China because the Firewall.
+Honestly talking about "data science" as if it was just one thing that supposedly runs "4x faster" sounds like a very broad generalization, especially when the GPU is doing most of the work.
+I want to artificially increase the size of my training set by applying random modifications on the images of my training set.
+Is 0.12 released yet?
+Just curious, what is the use-case for differentiable Cholesky?
+I would still argue that ImageNet's classes are not completely meaningful, and perhaps the team that made the Inception model could make a much better data-set from the vast amounts of data that google has available, so the Inception model would work much better out-of-the-box, without the need for re-training or more complicated caption-generation techniques.
+Seems like a reasonable feature to have.
+If your input and output shapes are different, gradients can get confused.
+It's probably not a great candidate for contributions welcome because I already have a plan to do it, and it requires some API changes.
+An example like this: will surely help a lot in understanding.
+To clarify: there's no need to make new custom ops.
+This question is asked multiple times in stackoverflow and in https://gitter.im/tensorflow/skflow
+However the fix requires the user to provide a shape invariant for a loop variable if its shape is changed by the loop body.
+One of the concerns is that there might be version skew between TensorFlow HEAD and an external repository: although we're trying our best to keep the API stable, the distributed runtime libraries are pretty new, and we might want want to change them between releases, so having it local might be better.
+I see there are many levels of op implementation, description, Python wrapping etc.
+matrix_inverse unfortunately is not yet implemented on GPU, but some of the other operations are, so I suspect there's some amount of memory copying.
+Will the training data be only users' data i.e their photos, playlists etc.
+Each was generated with the identical code running under either tf0.9 or tf0.10rc.
+On a larger scale, tensorflow seems to be rather unfriendly to notebooks in general, frequently requiring kernel restarts for small changes.
+It has been extracted out of the hadoop code as a standalone recently.
+I may actually modify this so that instead of plugging in zeros to the state, it just copies the state.
+Any update on timeline?
+Is this a missing feature?
+Hyperparameter & run description for tensorboard is now under active development.
+However, there's no way to get a None gradient, since the variables are connected, just through an empty tensor bottleneck.
+This concurrent behaviour seems to cause no harm.
+Is there any other way I can build from source?
+Breaking into debugger while running test, I see following in sys.path, which confirms that _python_build is placed before .runfiles
+How could I get it to work and be able to apply "tf.image.random_flip_left_right" to my training set?
+If anyone wants to have a go at this, note that the gradient of einsum can be implemented neatly as another einsum with swapped arguments / indices.
+Can someone give me a few pointers on where this should end up in the tensorflow source tree?
+Since tf.gradients() is mostly hidden behind the optimizers, and the behavior isn't currently documented, we could consider a breaking change to the API, but I think we'd want to retain the existing functionality.
+I am using sparse_softmax_cross_entropy_with_logits and, in my opinion, the best behavior would be to return a loss of 0.0 and null gradients when the label is not in the range [0, num_classes); never return nan.
+Cross entropy for padding logits became nan instead of 0.0.
+Rather, I know it doesn't implement all of the File API yet, but tell() and seek() and read(n) were pretty important, and we can add more functionality as users need them.
+The Macbook Pro is a great machine to develop use and develop stuff on, and lots of people I know also use MBP's to develop ML algorithms, and then send jobs off to AWS for the heavy-lifting after it works locally.
+I notice that the XLA Dot operation copies "outer-product style" broadcast semantics from numpy.dot:
+We need to use the standard unittest.TestCase framework, not your TensorFlowTestCase framework, so self.test_session does not exist.
+It might even be a good idea to implement an arbitrary convxd function, there are instances where high dimensional inputs have spatial relevance.
+By the way this repository, is using .a library files and headers from TensorFlow 0.6.0.
+I've attached the timelines named appropriately.
+Let me just add to @ueser's comments, that many of us are on CUDA 7.5.
+do you have 64 bit ubuntu or 32?
+As noted, the 0.10 version is ~3x slower than version 0.9 for a particular training script I am using.
+This is especially true since Swift is now open source.
+Currently, tensorflow/core/distributed_runtime contains most of the C++ implementation needed to get started, and we're still working on the higher-level libraries that will use multiple processes.
+Your GPU is GTX 750 Ti, which is gm107.
+Therefore, it would be nice if AdaDelta could be added to the set of available optimizers.
+The reason I ask is that it should work the same way in Python 2 and Python 3, and Python 2 doesn't automatically use unicode.
+It's not pretty and I don't guarantee accuracy, but if you really can't wait for proper support it might be worth a try:
+nn.batch_norm_with_global_normalization has been replaced by nn.batch_normalization which accepts arbitrary geometries.
+In my opinion, TensorFlow is very flexible, it can do model parallel, data parallel, or mixed parallel, although the examples are for data parallel.
+Feature request: Would it be possible to provide a conv3d_transpose, analogous to conv2d_transpose?
+I'm not sure about the gpu case, but it's possible that we don't yet allow scalars in some places on the GPU for Eigen-related reasons.
+And what did it link to?
+Can't quite understand neither TensorArray nor any rnn implementations based on RNNCell at this moment
+can sombody please let me know their difference and what i could do get rid off the syntax error as well?
+Do the is_* macros only work on the inside and should be rewritten?
+The reason I'm asking is that the size of the libs on disk and the final size they contribute to an executable can be pretty different, so I want to check how you're building your final binary.
+here is the runtime metadata jic that is helpful
+Am I missing something or is this functionality that we could add?
+Since we don't necessarily know that the shapes are empty until runtime, we can't produce None.
+For more information about installing and building TensorFlow and TensorBoard from source, see
+If labels come from a separate file and need to be joined with the proper images in tensor flow, then having a good and easy visualization would do wonders for being confident that the correct labels are matched with each image.
+Are there any very large (> ~2GB) variables in your model that could be brushing up against the protobuf limit?
+For more details, see
+What do you think?
+We have intentionally used this name so that people with py35 don't have to rename it.
+This seems to be a sync issue maybe?
+I think I've made that mistake too, so it would be good to get a more sensible error message.
+The batch norm variables you mention are all default data types (float32)
+I want to know if there is a way i can do this.
+What architecture are you running on (little endian or big endian)?
+gzipping will unlikely result in significant compression due to the high entropy of the weights, but we're very interested in enabling compressed model representations at rest in general, especially for models that have to fit on mobile devices.
+Do you have some feedback on how to handle this so that could be easier to integrate with TF repository with a PR?
+Is this still a problem?
+I replaced cuda 7.0 -> 7.5 and cudnn 6.5 -> 7.0 directly in the code.
+Since the PR is closed (hopefully temporarily) I thought a little reminder that a lot of us want this, would be helpful.
+Is there any progress with this?
+I would love if @jimfleming's libtensorflow.so rule were included in the TensorFlow repo.
+Is there a workaround?
+And I'm wondering if it would be worth the extra investment.
+Then the Linux VM has to allow the docker images running inside of it to access that GPU.
+On the other hand, it would be really nice to have a real native TF implementation, possibly using a nested while loop.
+Is CUDA 8.0 the new pip binary dependency or is this a mistake?
+But TensorFlow currently only supports complex64.
+By extension, I'd like to take the derivative of a vector wrt a matrix and get back a 3-tensor.
+For RNN cells, we get the initial state using cell.zero_state() and the last state after processing a sequence using rnn.dynamic_rnn().
+Can you guys shed any light on why this file would be missing from the pip package?
+I agree, this functionality would be great to have.
+Any good paper that you would recommend explaining bi-directional RNN ?
+In reality, people using mac os x should be exploiting the tremendous development platform which Apple has created.
+The training set for inception is from the ImageNet challenge http://image-net.org/download-faq.
+Based on this input and other considerations, we've decided to restrict the semantics of XLA's Dot operation to 1D and 2D arrays in the initial release.
+Also, are you running the 0.8 release or a nightly/from-source build of TensorFlow?
+I suspect it has something to do with everything being brought into the layers namespace.
+I have a new open PR for OSX Cuda support that uses Cuda 7.5: #664
+Also, they generally restrict to single layer at a time networks for speed issues, since doing the full Jacobian for a multilayer network is quite expensive.
+Is there a way to ask the build system to build a shared library that one can link a program written using the C++ API against?
+Is there any way to disable this optimization in a regular tensorflow session - ie. with tf.Session()?
+Linux Python 3.5 whl files will also be included in future releases.
+In most of the cases, SparseTensors are converted to Tensors for the underlying Op.
+This should be converted to use a custom Estimator until we add a new DNNAutoencoder.
+We need to clean up the examples.
+Are there any solutions to this problem currently?
+Could you explain how to inject a matplotlib plot into an image_summary.
+How can this be done using get_variable?
+One nifty feature to have in the codebase would be allowing recursive copying of Operation/Tensor/Variable instances from one graph to another.
+I've just done that and I've noticed it was due to "git.exe" not in my PATH.
+That's sounds reasonable, but unfortunately it would require adjusting the gradient functions, since individual gradient functions also use None for both (1) and (2).
+It would be awesome if the code had only one logging mechanism, controllable via python.
+Based on this discussion I actually updated the build_all_ios.sh script to use "-Os" by default, and to build in parallel to lower overall compile times:
+However, I do not have a NVIDIA graphics card nor a cuda-enabled card.
+I see, yea my intention is to indeed reset everything.
+We should consider moving it and other similar "metrics" like streaming_concat into their own library of primitives for streaming computation.
+Does symbolic linking libcuda.7.5 to libcuda.7.0 or just providing libcuda.7.0 have side effects?
+If you are curious about the Metal API, you can watch some of the videos from WWDC
+Even now I was able to connect a GPU to my MacBook Pro externally via Thunderbolt 2 and Akitio Thunder 2.
+But I'm someone who was running tensorflow on OS X with gpu early on (look at the thread), and I switched to Linux specifically because I do a lot of net training with gpus, so take what I have to say fwiw.
+If you're already familiar with building from source, I suspect option 2 might be easier.
+are there examples or docs that explain how to actually use the 1D convolution?
+Once we have plugin support in TensorBoard, this will be a good candidate for a plugin.
+the shared library was added a while ago, yay!
+linear is deprecated and shouldn't be used by external users.
+I am also interested in having a good way to remember the LSTM states for the next batch.
+We never implied that Inception, trained on imagenet, is suited for any particular purpose (for example, recognizing images outside the categories trained on), or that its design is suitable for production environments with concerns such as oblong images, or requirements on the specific description strings.
+I can also reproduce this on 0.11rc0
+We're planning to build closer integration between the graph visualizer and the other event types so that it would be possible to visualize data charts directly on the graph; we haven't started work on it yet, though.
+The rules work fine in our CI, which makes it a little more confusing.
+If so, what have I done wrong?
+A function that would take two tensors of 3D vectors and return the cross products of the 3D vectors would be nice.
+Fractional striding is hard to implement efficiently using anything like direct convolution; normally I'd just write it using FFTs (which already works).
+There are two types of handle objects, Python TensorHandle and "native" string session handle.
+More control would be particularly helpful for implementing ReLU RNN's (http://arxiv.org/abs/1504.00941), where the hidden-to-hidden weight matrix should be initialized to the identity matrix.
+In general I haven't found emulators and cameras to get along, unfortunately.
+We're going to fix TensorFlow to produce nice exceptions for integer zero divisions.
+We don't have this at the moment, but it would be good to add.
+Is anybody working on this?
+So I'm also wondering whether the compression of TFRecord file will be supported in the future?
+I also had an idea for what the ultimate version of tensroboard can look like, that is putting aside the add_image/histogram/..._summary and let user click on each node of the computation graph and see what is exactly flowing in the tensors, if it images, vectors, ... just show the content, info, shape and values, something like the debugger area of most of the ideas which let you know the variables info in the run time.
+Forcing a dependency version prior to the latest version is just silly.
+Yes, I think there should never be any division by zero in the above operations, at least from what I can tell from the backpropagation formulas.
+As far as I can tell, the digamma function is only used for entropy and other log-expectation calculations.
+I agree it may be confusing when TensorFlow automatically turns many variables into one by taking the sum.
+Is it a bug of Tensorflow Python API or is it my "fault" because of the type/shape of my input data?
+In addition, that initialization option is deprecated, since you can just use tf.variable_scope with a proper initializer (which is what LSTMCell does under the hood).
+No sparse matrix library I know of supports these operations, and SparseTensor was definitely not designed to support structured unary operations like this.
+Would you be able to post your graph protobuf?
+After discussing of it with someone of the team, they told me a strange story. It appears thar the old CUDA drivers are very much in demand by the people using AWS of amazon !
+Upon further investigation, fixing (2) in an efficient way seems tricky.
+Do you want source or binaries?
+Which file(s) should I look at to find what you're talking about?
+In the meantime, if anyone wants to experiment there is a initial PR for Spark by @amplab at amplab/SparkNet#91
+Or is something else wrong?
+Status update: Build fixes for tensorflow proper are in, so we just need to upstream a small BUILD change to protobuf.
+The HTML on tensorflow.org is generated quite similarly to what github's MarkDown viewer does, so the experience shouldn't be all that different.
+edit: Omg getting teary eyed.. Tensorboard is awesome
+On the docs, we could just assume all ops are gpu compatible, but if they are marked as "CPU only", it would help!!!
+matrix_inverse was recently changed so it will try to use Cholesky if the matrix is symmetric, in the interest of speed.
+Built for me with R5, I was able to run a few benchmarks, though not a huge difference, presumably because I'm not choosing the 'optimal algorithms'.
+I see tensorflow as a programming language with a python wrapper, rather than python module that can interact nicely with other python modules.
+Using np.multinomial has been pretty challenging due to the fact that the batch size isn't evaluated until you run the session.
+have you tried using L1 regularization?
+Gerrit review workflow is very hard to maintain and follow.
+I don't think a custom tf.reshape_selected makes sense: separate transpose and reshape is cleaner especially since you have to invert it.
+I would love to help to add them, however could you please provide some small guidance on where to start?
+Here is an example file that doesn't revert the modifications
+can I just run this once in my own code, or do I have to paste it into some of the tensorflow files?
+Can we do that?
+The checkpoint format writes the value of a variable into a Protocol Buffer, which has a 2GB limit.
+But is it this?
+I spent some time looking at some sparse operations to understand how SparseTensors are handled.
+Similarly, I have a helper function to assign variable values from this dictionary.
+So to share an OS X GPU with a running Docker image, there's actually two levels of indirection: VirtualBox has to allow the Linux VM to access the host GPU.
+Hi, can someone either point to code example or documentation how to extract final predictions after the training the model.
+As a side note, the implementation of l-BFGS-b in scipy is a wrapper for the official FORTRAN implementation: which is probably another good reference implementation to benchmark against.
+It would be nice to be able to interchange the cell without changing the placeholder/feed logic.
+Then that Linux VM is then what actually runs Docker.
+Currently we only support Python 2.7, but we should support Python 3.
+No, it doesn't support padding at the front, it only supports to pass in the lengths of each individual sequence in the batch, and will do the correct forward/backward pass on them, up to the specified length.
+Has anyone gotten this to work properly on Mesos?
+successfully built without gpu support on OSX 10.10.5 with Anaconda python3. I tested the MNIST example without problems.
+So it's a good candidate for a community contribution.
+What sort of range would be a good default?
+Our policy is that until it is documented, assume it is private and not ready to be used.
+This would be a great addition to tensorflow, and is conspicuously missing.
+It would be very helpful if the documents and turoirals can be obtained from other places other than google server.
+This seems to work, but it would be nice to have this built in.
+Do we have to wait for any period of time before using them in TensorFlow?
+Is the fix python only?
+Same with convxd. #150 for a similar request, but for 3D, which we'd also love contributions for.
+FR stands, I agree that it might make a lot of sense to support something like that.
+We are still discussing whether we should include it in the python op library, or having a more efficient native implementation.
+There are flags that only work for building x86, and likewise some that only work for arm.
+It would be great to add matrix trace operator as well!
+I think it would be useful to add functionality to check the calculated shape (if available) of the Tensors in the graph visualization.
+If not, what is the best way to easily inspect the values of the tensors after the most recent run?
+FYI tensorboard does now use argparse.
+The good news is it looks like it might be really easy to fix.
+Is there anything I can change within the demo code to improve the speed?
+This is getting ugly, but I don't know a cleaner way.
+Here's my new tutorial on the Inception Model as a Notebook and YouTube talk:
++1 for java!
+Is this because we're missing a unit test?
+I wouldn't say that streaming_mean is broken.
+It seems that tf.reverse_sequence now works with partly unknown shape.
+Is there a way around this?
+This thread may answer questions that others might have in the future so I think it has been a useful discussion.
+is there any reason why double isn't supported?
+This is a general way to handle context, but it's not straight forward using the existing TensorFlow features.
+There are some examples in the docstring :)
+That should make the gradient computation for reduce_prod a lot simpler.
+edit: Updating the driver seems not to be that easy (see ask.SE question).
+If we did that, we'd be able to add your automatic conversion, which would be great.
+Depending on the application this may result in shorter processing time.
+I'm positive that I wasn't using cpu blas.
+Is this something that sounds useful to others as well?
+It would also be annoying if it depended on the processor flags.
+I think that it's going to be hard to help without seeing your code.
+The one possibility I could see would be if we add some sort of map facility to register how to add extra ranks to ops, then compute gradients with respect to extra rank by computing lower rank and calling the registered map transformations.
+In fact this is the change (from tf.flags to argparse) that was responsible for this regression.
+This allows you to request a GPU device for any of your ops, and it will fall back to running on a CPU if there is no GPU kernel available.
+In fact, that TAG directory/file is indeed not present on my filesystem.
+Does cc36921 solve this issue?
+it looks like there are two common shapes of Sum reduction ops in your trace and one of them is being evaluated very differently by Eigen in 0.10 resulting in much less GPU parallelism and about a 60x slowdown! (3.3ms -> 178ms)
+Development for the docker containerizer is currently under development, but using it will not be the recommended mode of operation.
+The poor CPU performance seems surprising.
+If not, can you tell me how to approach this (since you said that i should be easy in the description)?
+I think although TFMesos is still experimental, but we believe this a good start to better integrate TensorFlow to the existing Big-Data Ecosystem and support bigger and deeper models in the future.
+If this is something that used to work but doesn't anymore, then maybe something got flipped from float to double recently.
+Had this been implemented on GPU?
+Not sure if it matters but I've attached two other timelines taken in loops in which summary operations are not being performed
+I'd like to request support for basic trigonometric ops.
+hi, this is solved long ago, i can't remember what was wrong at that time, but it's gone
+The cross product of two vector W x V can be implemented as a matrix multiplication using skew-symmetric matrix.
+My guess is that maybe the libraries, cuda and torch and such, aren't as optimized for OS X.
+I am the one who built the GPU support into Mesos and very interested in learning what limitations (if any) there are with running a distributed tensorflow with GPUs on Mesos.
+I'm saying if one wants to penalize the norm of the Jacobian of the mapping function.
+It would be nice if one could use symbolic links to organize groups of training files.
+What's used to determine if_mobile etc.?
+I've seen your comments in other github threads but I've had trouble understanding what your full set of recommendations is (for cuda, cudnn, etc).
+Once Stream Executor support is finished I was planning to work on it
+Please support cuda 7.5 and cudnn v3
+Can the desired functionality be achieved using other ways?
++1 for this.
+Could you please let me know what the value was of $TF_INC as per the following step in the instructions:
+I will be great for NLP tasks like machine translation to work and re-train embeddings matrix on GPU.
+Who is the owner of the tensorflow/examples/skflow directory?
+Optimizer.apply_gradients() uses the fact that individual gradients may be None to remove assignment ops.
+What would be an optimized way of doing this?
+This version is just a linear mapping using cosine similarity.
+Calling session.run() on large tensors seems like pretty standard behavior for machine learning.
+It is probably enough to add a warning about the test issue to the dev environment setup instructions?
+LSTMCell provides the ability to initialize the shared matrix, not individual gate weights.
+If I got something report like it, I would notice I could have error to catch(it seems a little unreasonble to ask user to read what errors one may get before coding, since python is a lot about interaction).
+We are working on re-implementing candidate sampling in a cleaner way, and we'll take a look at adding a choice-like op when doing this.
+Should I better compute it with different operations?
+The full patch and details are in the Bitbucket pull request:
+I'm pretty sure thats new, and it seems it doesn't have BN automatically included in it like the other convolution, which is a big draw back.
+Is there any news on this bug?
+I have variable-length sequential data that I pad in pre-processing, while also generating a boolean mask for the valid entries.
+I've prepared compiler options and .a library files for x86 and x86_64
+There are still some hurdles to getting it supported all the way through DC/OS, but we plan to have those issues resolved by the DC/OS 1.9 release (mid October).
+It seems that there has been a pull request pending on this for several months:
+I can't reproduce the issue.
+I tried passing the X argument as a tensor, Pandas dataframe, and NumPy matrix.
+Actually, I don't quite see anything corresponding to a fully-connected layer either
+However, I also commented out copts = if_ios(["-DGOOGLE_LOGGING"]), and any if_ios conditions, which was seen invalid when I was configuring.

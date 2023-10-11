@@ -1,0 +1,146 @@
+What resources do you recommend for working with v8 modules?
+Thus, it is possible to implement all or part of the tensorflow API in Java while preserving communication compatibility with the existing code.
+Since a Java version would likely be slower, one useful bit would be a pure inference layer that evaluates graphs but isn't necessarily able to build them; this would allow graphs built in Python and trained in Python / C++ on GPUs to be run from Java servers.
+does the addition of the sentence line above solve the issue OP experienced?
+There's a testsuite with fairly good converge, but currently it's mostly Python with a few C++ tests.
+Third, it is much easier to use a thoughtfully designed API than an automatically generated one.
+A doc describing how the C API can be used to build language bindings is at https://www.tensorflow.org/how_tos/language_bindings/index.html
+Has anybody verified that quantized computations are taking place on their GPU?
+This is why building cc_library targets with no srcs and only deps, such as //tensorflow/core, do not produce any artifacts.
+is there an official github repo for this porting project?
+The javacpp project seems to implement most TensorFlow APIs.
+I really hope that we don't fragment OPENCL here like in Caffe where we have an AMD fork, Intel unmerged PRs, another semi-unofficial AMD PR, and a long staging user PR (plus two old abandoned Opencl efforts).
+It would help us to make a quick repro if we knew the shapes of the operands to these ops...
+More problems: It is extremely hard to make testing plots in tensorboard.
+There are plans to move this functionality into the underlying C++ in future, at which point Java SWIG bindings would be more useful for creating graphs.
+On the other hand, cc_binary targets will link in all the transitive dependencies.
+I'd really like to see a C#/.net wrapper.
+My guess would be that you're getting a different installation of python, without numpy installed.
+Note that the original version of the Magenta code used its own version of attention, but was later changed to use AttentionCellWrapper.
+Are there not significant limitations by using the service approach?
+My guess was the good one, my Python environment is not loaded properly.
+This post gives a comprehensive and easy-to-follow overview of the current TF attention implementation in an encoder-decoder context.
+I don't think you need to pass -shared yourself.
+For example the TF implementation involves convolutions and requires a fixed attention window, neither of which are a feature of the referenced paper.
+Yeah, I don't think there is a viable alternative for cuDNN for OpenCL right now.
+What aspect of automatic differentiation is not available from other languages?
+At the very least, the Eigen library would have to support OpenCL.
+Can I kindly ask if there is any update on this issue ?
+The complete script, which actually comes from Pete's blog is as following.
+According to the author the implementation is based on the details at the end of the Bahdanau paper (https://arxiv.org/pdf/1409.0473v7).
+This is a question more appropriate to StackOverflow, unless there is a very concrete feature request here.
+Is there a canonical / repeatable test suite, so language bindings can have a target and level of confidence?
+Are you following the instructions here?
+I think it would be better with a official NodeJS API however a community one will be as (if not more) interesting in my opinion.
+Perhaps we should improve our documentation and add an example on building .sos.
+C# is very popular and expressive language with a large community of pro developers.
+Are you saying that all the nice auto-differentiation magic that we get from using TensorFlow through python is implemented within python, not within the c++ libs?
+I think it would be better to keep the directory names consistent and use java_wrapper rather than javaWrapper
+Is the C API interface still on track to be released sometime within November?
+Also, the explanation of sequence_length here isn't clear to me.
+Is there a build server?
+We're using the C API instead of SWIGing to the C++ API.
+So I think that an Opencl/Sycl support to Eigen is needed.
+For it to be really useful it would need to be embedded in a broader gui-based execution system for TensorFlow, which also sounds very challenging to get right.
+Is there a reason why you are using a cc_binary rule to build the shared library rather than cc_library?
+If all the functionality is not available in the C++ core then porting will be very difficult and some cases not possible (with respect to a fully functional version).
+I'm labeling community-support for the use of VisualStudio on Ubuntu.
+What is the real name of bottle_neck tensor?
+This would help to see if we could have immediate OpenCL alternatives.
+And here is the example code of TensorFlow serving gRPC Java client.
+A Swift frontend, especially for simply running graphs for inference on mobile would be great.
+It would be very convenient to also have GPU implementations.
+I've just made an update for the master branch here: bytedeco/javacpp-presets@43bdcdf
+I can help code some OpenCL/SYCL if someone makes a plan, divides work into tasks etc.
+how did you come to the conclusion to use the C API?
+I notice TensorFlow is now accessible from Go, Rust and Haskell.
+We haven't optimized this because we haven't seen any realistic models where it is necessary to transfer this much in a single step, but it obviously shouldn't crash like this.
+Are your SWIG wrappers in a separate repository or are you working in the tensorflow repository?
+I will check with the team to find out what the timeline for proto_library is and whether it would be worthwhile to unify the rules provided by Protobuf with genproto.
+I am working on using tensor flow from java.
++1 for this feature.
+Is that just for defining new ops?
+we are working on a ruby interface using swig:
+Could you please add dependency to @org_tensorflow//tensorflow/core:protos_all?
+Does the API you expose accept TensorFlow's protocol buffer objects?
+Once we come up with a reasonable approach that targets heterogeneous programming models ( not only OpenCL / SYCL ) we will create a proposal.
+Since raw performance is one of the goals of this library I think that pure implementations don't make too much sense.
+We do have interest in this.
+There's also a lot of functionality for building graphs that's currently Python only, in particular the automatic differentiation functionality, though that doesn't matter for evaluation of graphs in Java.
+I eventually went through the math and as far as I can tell it's not something that's from any paper I've come across before.
+The gradients are defined by Python code, so they aren't available from pure C++ as yet (we hope to change this at some point).
+I developed opencl-caffe for AMD.
+Is there any link related to node-gyp binding for tensor flow API ??
+Perhaps a better place for the Java wrapper would be //tensorflow/java/wrapper rather than //tensorflow/core/java_wrapper?
+We are working on porting TensorFlow to node.js, and I've implemented a shell script to compile and getter only essential sources from the whole repo:
+I have found this in stackoverflow about generating TensorProto with pure protobuf API.
+to the best of my understanding of the code, the math described in the Magenta post does not match the math implemented in AttentionCellWrapper, though it does match the math in the paper you cited.
+Shouldn't be too hard to p/invoke into the C++ API.
+In order to build a .so that includes the transitive dependencies, what @saudet did using cc_binary with linkshared = 1 and name = "libtensorflow.so" was correct.
+Has anyone got anywhere with embedding the python tensorflow environment in the jvm?
+I am also looking at tensor flow.
+The details of accepting contributions is in flux at the moment, but that will stabilize.
+Have you, by any chance, started working on the Swig Interface for Java?
+I think the reasons may be that the tutorial and the latest version of tensorflow, somehow do not match perfectly.
+As far as I know, linear algebra library for Tensorflow is "Eigen library" and SIMD vectorizations(like SSE, AVX, etc.) are applied to the Eigen library.
+Reimplementing the whole python logic in another language seems too much, you end up with another API.
+can you organize it?
+FYI this flag is in 0.3.2 release candidate, so should be out in the next week
+Could there be a build server?
+I believe the Python API layer has lots of logic that the C++ layer API does not expose.
+Can you comment based on the "Confirm safe" TODO?
+Unlike Caffe though, TensorFlow actually seems to get a release every month or so, so I guess I'll start stabilizing the bindings at those points, starting with the next release (0.7.0?)
++1 for Java.
+The documentation for AttentionCellWrapper in contrib states that it's based on this paper.
+Why can not find the bottle_name in model definition python file?
+We're trying to run the tensorflow/serving in Java.
+It seems a more natural fit and it's still 100% java at the end of the day.
+I will be interested in expanding Tensor Flow with OpenCL.
+fyi - I cherry picked @nubbel proto definitions from https://github.com/nubbel/swift-tensorflow and have two docker containers
+Attention is typically used for translation tasks, this looks like a good technique for music generation but I think the class name and the paper reference are misleading.
+I too am new to it and did not realize it was capable of generating a .so in that manner.
+What are the results running on GPU?
+My own guess is that it is somehow related to the issue #2703, I think my $PYTHONPATH variable is not loaded in the test environment and then it cannot find all my libs.
+Few months ago I was able to compile tf for knl with gcc 6.1.0 and some gcc patches.
+Seems that we have here a quite complete Javacpp preset.
+Internally, we have some build rules that take .swig files and generate the sources.
+The main difference between the .so's built by cc_library targets and the .so built with cc_binary using the method described above is that the cc_library artifacts only contain the code in srcs.
+who is responsible for OpenCL support in Tensor flow now?
+Yes, I compile all the tensorflow *.proto sources to Java source code with protoc and use those classes in the API.
+Is there any update ??
+It's better to include libcurl as bazel build library instead of using the system one.
+Is there a list of CUDA dependency libraries that Tensorflow relying on?
+That seems like a nice proof of concept but I think an official binding would probably want to bind more natively than going through Python :(
+I wish this suggestion was more helpful than "you should make it good", but I guess the point is that look how different the C++ API and the python API are.
+I am currently working on expanding the C API to add support for graph definition.
+Providing APIs for every 'very popular' lang would probably bloat the main project quite quickly.
+This is currently not documented because we are working on a number of improvements to the external repository mechanism, and the @local-jdk name might change, but we can use it for TensorFlow and any other Bazel project that uses JNI in the meantime.
+Perhaps it would be a good idea to build it first.
+The other feature may be useful is to increase the decay steps as it goes further, for example decay it each 200 steps for the first 2,000 steps and then decay it for each 1,000 steps to the rest or another decay level which can be decay it only each 5,000 after step 100,000.
+It will be good if yo have pure implementations in other languages like JVM and .NET without having to use SWIG.
+fyi - I built this script to spit out c# files (en masse) from tensor flow proto buffers for use with grpc
+Is it an acceptable solution for "the team"?
+It would definitely make it easier for others trying to get TF working on a TX1.
+I am working on a SWIG wrap of the main C++ API.
+If somebody is interested in the history can take a look at BVLC/caffe#2610 comments.
+Are you using the same versions of CUDA and CUDNN with both releases?
+TensorFlow has provides helper functions to convert multiple dimention arrays for Python and C++, but not Java.
+I've finalized the presets for JavaCPP and ported the example_trainer.cc sample:
+Note that createWrapper.sh must be run prior to running compileAndRun.sh.
+I tried a small network on GPU and get similar results.
+Please can you provide all of the information requested in the issues reporting template.
+I haven't checked all the math but this implementation slices off the first encoded hidden state and appends on the most recent decoded hidden state which is not what's done in Bahdanau.
+The Go API was implemented using the C API as a first example of following the above document.
+Is there any interest in this by Intel?
+That one is dependent on Darwin platforms and Apple's Accelerate framework.
+I find the Kotlin language to be a very nice middle ground between python and pure Java.
+I think the user experience would be better if we could have a search box in tensor API webpage.
+tbh I don't think that paper is a good description of the model either.
+We have unsorted_segment_sum and segment_max , so it seems natural to also provide unsorted_segment_max, which I happen to need.
+I agree with @sunils27 and @maxcuda that we need a more stable set of instructions for specific components..
+Has anyone had any success with wrapping the objc ios camera example in a swift project?
+Second, it would be helpful to find the minimum version of libc that TensorFlow needs and build against that.
+Update: I was able to successfully get things going with javacpp (thanks to @saudet ) and have Java programs read/execute TensorFlow models.
+I would love to integrate libcurl into the bazel build.
+What feasible alternative approaches are there?
+A prettier API on top of the generated interfaces would be nice though.

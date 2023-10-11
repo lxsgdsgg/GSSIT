@@ -1,0 +1,147 @@
+Why is there not a comparable slowdown due to protobuf serialization when talking to a parameter server shard?
+We can't pull in FFTW because of its license implies complicated legal issues.
+Here's the paper: Look at their main equation http://arxiv.org/pdf/1511.06464v1.pdf (its number 6)
+Hope the dynamic_rnn could return intermediate states so that we can implement a attention machine with dynamic network.
+I guess this should be really easy to implement, but a really big help for people using the bidirectional version.
+On the author's code (theano), they do this by making a Theano Op, and inserting scikit's Fast Fourier and Inverse Fast Fourier Here:
+Currently the C API is under-documented and offers only a few core components, Graph, Tensor, and Session.
+If I understand correctly (per a short tutorial from @rsepassi) you currently cant delete nodes from the graph without regenerating it, however regenerating the graph takes seconds, so it would be nice to allow creation of nodes and edges via the GUI (like Cafe).
+The reason why I wanted a pythonic tensorflow op is so that we can assign multiple gpu's to multiple unitary RNN's when the whole integration is complete.
+This is open source and Github so there might be enough hands to man the maintanance of ports to the most popular languages for such an important piece of software.
+So wondering if you encountered it.
+Can support for tf.transpose please be added for tensors above rank 11?
+regarding on why "dequeue" transfer was faster than "ps" transfer -- there are two kinds of transfers:
+I'm building tensorflow inside a C++ project and link with it using bazel build script.
+we pushed changes today which enables fft2d and ifft2d on gpu.
+The general form of this is called tensor contraction.
+I think it's easiest to simply append -lm on everything, by hacking third_party/gpus/crosstool/CROSSTOOL.
+It seems strange that it would be break at this specific point, not sure if this might be related to memory.
+Are you aware of any other issues that one would face?
+It would be nice if you add decay based on changes in a loss, as it was common, if loss doesn't change for a threshold of a step and amount, then decay it.
+The gRPC project already supports 10 languages, including Java, C#, and JavaScript (via Node.js).
+I haven't tried your code myself but I believe you're hitting a common TensorFlow pitfall which is that you're also measuring the time TensorFlow spends constructing the graph and also the C++/Python conversion of the resulting tensor into a numpy array.
+Did you manage to compile ?
+Also note that Python garbage collection is going to be a source of noise in your benchmark (if you measure over thousands of runs)
+The reason is gcs_file_system dependens on libcurl 7.33.0+, and this is higher than the default package versions of many Linux distros.
+Is there any update on FFT on the CPU?
+I mostly followed the instructions for the TK1 at cudamusing.blogspot.de.
+I am currently basing my calculations on Float32 which is kind of default at the time of initialising variables.
+I'll do this at some point in the next two months.
+does that look like something we'd want to have?
+I noticed that nvidia released an even more recent version of the compiler.
+This is the tip of the iceberg in terms of comparisons.
+I'm working on an open source implementation of uRNN right now for everyone to use.
+Because we optimized the way in which Tensors are protobuf encoded-decoded at the RPC interface for the RecvTensor method.
+We're getting more eyes on the BUILD file we've written to make sure we're doing it correctly.
+I've written up a change internally that makes Bazel build libcurl from scratch.
+Does anyone have the already generated files for TX1 or can point me in the right direction?
+It would be great to be able to recompile tensorflow without having to call configure after changing branches.
+It would be great if we can do similar things in tensorflow with easy.
+It seems that this line, and the whole debug_service_proto changeset, have been added, reverted, and unreverted over the last couple of months, and simply commenting out that line allows my build to complete.
+Then no one should hopefully need to worry about curl again.
+If you are seeing more cpu cores being used you are most likely using CPU BLAS and might be experiencing performance gains due to lack of host <-> gpu transfers.
+Anyone knows what farmhash is being used for in tensorflow r0.9?
+I need to be able to run it on a computer without a GPU, and currently it seems to be implemented on the GPU target.
+Even if there wasn't a GUI for this, having some utility functions for making modified copies of graphs would be useful.
+Providing APIs for every 'very popular' lang would probably bloat the main project quite quickly.
+And the version 0.11.0rc0 can be built with bazel with version of 0.3.2
+In theano, the mechanism to do this is use the theano.clone function with a replace dictionary as argument.
+Wondering if there's a concise summary of everything in this issue?
+How can this be done in TF?
+Swift is a very popular and expressive language with a large community of pro developers.
+Release notes https://github.com/tensorflow/tensorflow/releases say there were some changes to gradient calculations.
+Given that TensorFlow is designed to also run on mobile and that Apple is recommending Swift as a primary language for iOS development, I think having a Swift API for TensorFlow would be a good idea.
+fyi - Google released an official swift3 grpc library last week.
+We don't generally promise to make changes to support older Linux systems, but maybe this is an easy change.
+Self-contained benchmark that reproduces it is here.
+It shouldn't be too hard to copy the fft2d impl, and add fft1d, fft3d, and batched_fft1d, batched_fft2d, batched_3d, etc. as needs arises, plus testing, etc.
+Feature request: Allow specifying Session.run() parameters options and run_metadata when calling Estimator.fit().
+Most recent metrics find it comparable to C++ in production.
++1 for this request.
+I'm using the master version of tensorflow and here a the BUILD file
+It seems that it tries to compile the proto file debug_service.proto but can't find the needed dependencies.
+For Linux we are supporting Ubuntu 14 and newer which has 7.35.
+if I use zlib or gzip when create tfrecord writer , I can convert the csv successfully.
+Is it all for performance optimization?
+RHEL 6 currently does have an older version at 7.19, but that is 6 years old at this point and ending its production phase 1.
+The "Confirm safe" TODO is now obsolete and will be removed on the next successful push from internal.
+I successfully build the tensorflow on TX1 24.1 64 bit, with the following patch.
+It would be better to follow the "matmul style" style broadcasting semantics of Python's @ operation and NumPy's matmul.
+It seems like a reasonable idea.
+As far as I can tell, these operations are only provided on CPU so far.
+For that matter, why do inv and div need separate kernels at all?
+Do we have a better example illustrating preprocessing steps like data normalization, distorting images, etc?
+It would be really nice to have all of them in the CPU version as well.
+Swift is significantly faster than Java.
+I updated my building instruction on cudamusing and also posted a wheel file.
+Looks like @rxwei has made some progress here around providing some basic test cases around a swift wrapper for the tensorflow c api.
+I just would like to know if high dimensional matmul will be supported in the future?
+Where is google/protobuf/BUILD?
+I understand the sentiment, but Swift, C# and Java are not "every" language, and this is not "every project" either.
+The bottleneck seems to be protobuf decoding which happens on a single core.
+Can you have a look at TensorEvaluator.h please?
+If you're coming from numpy you're used to be able to index and assign into arrays in the usual way.
+It is not possible to rearrange the code as suggested because Ncontext is an integer (>=0) parameter to be tuned.
+any suggestions how this could be rewritten in a nvcc compatible manner?
+Do you know of a reason we can't add -lm in all cases?
+Does it mean that this Inception model will stop working in the future?
+I think the issue you're running into with FIFOQUEUE with the distributed interface is that maybe the RPCs involved are not the optimized RecvTensor method, but some other RPC that doesn't have efficient coding.
+In my example below, I toyed with tweaks at the command line (e.g., limiting the training size) to see if it affected success.
+Getting the angle of a complex number is another mathematical operation that would be useful / basic to have, along the lines of np.angle.
+Also, what version of numpy and cuda (in particular cuFFT if you know) are you using?
+The underlying Eigen library supports this, but the functionality is not currently exposed by TensorFlow (ironically, given the name).
+Did you also build with latest bazel release or 0.1.4.?
+Should there also be an equivalent $TF_LIB path?
+I think I'm implicitly assuming we're talking about the resize_image ops.
+Is this issue resolved?
+I think this is identical to the current implementation but using cufftExecR2C() and cufftExecC2R() instead of cufftExec()
+could you point me to that thread.
+is that still necessary?
+After investigation it appears that this test was not intended to be run on GPU.
+I know they may converge more quickly (one of the benefits), but keep in mind that an epoch usually takes at least 24 hrs with normal LSTM's and GRU's for big datasets.
+Update: The code is out for review.
+Why is there a difference?
+I don't think adding support for the most widely-used languages such as Java, C#, and Swift would be a bad idea.
+I know it's not a priority and will be a long way to get there; but making TF compatible with PyPy woud be super cool.
+I am running an up-to-date, CPU-only version of Tensorflow 0.11.0rc0 (for the appropriate version of Python 3.4/3.5) in a virtualenv, with an up-to-date version of the github repository.
+MR/Spark are commonly used for ETL and feature generation, it's better to support close integration with such systems.
+That does seem weird, though I'm not sure it's a good idea to copy the files over the installation.
+It would greatly lower the barrier to entry if new users & data scientists who are more comfortable with GUIs could modify graph parameters directly from Tensorboard.
+In either case, it would be good to add the optimization that flattens dimensions that transpose together so as to use lower rank code if possible.
+Python is quite popular in academia but a little less popular with the bulk of private sector developers.
+Since our exact plans on accepting external contributions are still in flux, it would be a good idea to check in with the discuss mailing list with a draft of the code ahead of time to figure out where it should live exactly.
+This is one of the most challenging vendor libraries we've dealt with so far.
+So it would be nice to change this for XLA before we lock in this behavior.
+I think you should consider adding a warning.
+We'll need to add a few FFT ops to get this done -- probably using cufft or fbfft for GPU.
+Do you build it on your machine (e.g. Mac) or on the device itself (e.g. Pixel C)?
+'test/' is a local directory that TensorForestEstimator saves the model there.
+If so, i think it is convenient to update 'retrain.py' according to the new definition of inception-v3 to avoid confusion.
+I would also very much like to see fft support, not for the training of dnn models, but for the feature extraction in a speech recognition pipeline.
+is there a debian package that I can use to install the latest version of the cuda sdk ?
+What is the size of the input JPEG-images supposed to be, and is the Inception model rescaling them automatically?
+I would not agree that C# or Java are good candidates in terms of speed.
+If my understanding about GCC is correct, -lm redundantly won't increase size of binary, since if no code from -lm is needed, it will not get copied.
+Here is an example that I use to build another 3rd party poco library which is also configure-make-make install pattern, hope this can help:
+Anyways, I would expect that all ops defined in Tensorflow would be available for both CPU and GPU (and any future device).
+is there a multivariate numerical time series example in tensorflow.
+I am aware of that backprop through multiple tf.slice is memory expensive.
+have you found the root cause of segmentation fault issue?
+I wonder why the change is not reflected yet on the concerned webpage?
+CPU-based FFT is still in limbo unfortunately.
+Has anyone tested this on jetson tx1?
+How can I verify/enforce this?
+My motivation for installing tensorflow 0.9 on the jetson tx1 is to solely utilize some of the fp16 ops.
+Swift has many advanced features that make it one, if not the best choice for full API support for TensorFlow.
+And how about the tensorflow version - r0.8?
+The input_saver_def_path has value 'test/' which is a directory, but I think maybe it should be the pathname of a Saver proto def?
+It would be great to also have real-valued FFT operations like batch_rfft2d() and batch_rifft2d() (which use half as many operations as the complex version).
+How should I adjust for this difference?
+This language is very pleasant to work with and has all of the great features of top expressive languages like Haskell; Generics, Closures, etc.
+Of course, comment out the gcs rule is much more easier.
+The GraphDef file you need is currently not available from slim unfortunately.
+Also it's worth noting that I used bazel 0.1.4 per the instructions on cudamusing.
+Swift will typically run faster than Java, since it compiles into native code via the LLVM compiler.
+I don't know if there's a way to get MaxPool for CuDNN to do depth-pooling, but if so, that should be part of this.
+Also, note that to do a proper benchmark you're going to want to take multiple measurements in a loop and it's quite common to include a "warmup" phase of a dozen or so session.run calls that you ignore the results of.
+But with a little bit of luck, this change might be good enough to be merged.

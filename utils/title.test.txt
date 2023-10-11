@@ -1,0 +1,916 @@
+failed to search with HA mode
+index mapping update not working properly
+Analysis throws index pattern error when creating jobs but still actually creates them
+Partitioning field selection on Single Metric Viewer is unstable
+Monitoring UI not updating total events and bytes sent
+navigation via the minichart is confusing
+Donut chart displays nothing if no monitors are present
+Can't create or delete workpad pages if autoplay is enabled
+Wildcard search disable and error message
+Bug in expanded document url-links
+`error.log.stacktrace` is not shown in log stacktrace tab
+Kibana logs reloads entries on click
+Input controls does not reset top level controls after clear
+Index pattern list stays visible after collapsing left hand panel
+Unable to see full index pattern name
+eCommerce demo percentages are not between 0 and 100%
+7.4.0 dashboard background different color than rest of the theme.
+Auto-complete should have track_total_hits as a search request option
+Remove use_field_mapping format on 7.x versions
+Tooltip labels on charts are using "id" instead of "name"
+Kibana side bar's recently viewed button no longer works
+Cannot create new index pattern when there are many system indices
+Element editor offers functions not intended for Canvas
+Query bar reverts changes on save if it hasn't been submitted
+MenuItem type:radio wont allow 0 checked items
+Mircotaskscope in the renderer interferes with debugging async/await
+Electron 7.1.2 - Can't remove the main BrowserWindow menu
+Microphone Access in Electron Browser Window in WindowsOS
+BrowserWindow won't go fullscreen on instantiation on Ubuntu
+Accessing `document.cookie` in preload script will break cookies after navigating to a new URL
+Bundled FFmpeg does not contain copyright and version metadata
+Context menu not working on build macos
+H.264 video started playing with electron (v 6.0.0) onwards even with patent-free ffmpeg is used
+save dialog with filter no longer returns file extension
+IPCMainEvent.reply throws odd expection according to the doc
+error processing argument at index 0, conversion failure
+Can't install electron - install hangs
+Failed to get 'documents' path
+Draggable transparent frameless window background glitch (windowas
+TouchBar Api is broken above v4.2.12
+BrowserWindow removeMenu method not working on v7.1.1
+Cannot set property 'Origin' of undefined
+Unable to install Electron 7.1.1 on Raspberry PI 3 (32 bit ARM)
+v7 shows background color for a sec when clicking the icon
+Unable to click tray icon with VoiceOver
+Window.show restores a docked window to its previous size and location
+clientRequest leaks as unhandled exception
+Double click not working in macOS open file dialog
+crashes when running from a network share drive (e.g. '\\\\\\\\')
+Electron 7.1.0 form fields render not as intended
+window.open incorrectly handles the second parameter
+false not obeyed in Electron 4+
+Crash or missing login event with proxy server
+app.setAppLogsPath() does not set the `logs` path
+Random JS parsing errors in custom protocols
+The response of the CORS POST request is empty when using webRequest
+build script not show gzip changes
+create-react-app keep on loading at fsevents
+Unable to target a scoped NPM package template
+React cant import dependencies from yarn
+no-use-before-define false positive for enum in switch
+Colon in title or sidebar_label breaks markdown
+Side navbar (TOC) doesn't display content in escaped angle brackets
+docusaurus-start doesn\\'t work with projects that contain "pages" in their path
+Links in are not generated correctly
+The same CSS files are injected several times when switching pages
+cannot escape character within backtick within a table
+Cannot link directly to doc in sidebar
+Custom prism theme is overridden by theme-live-codeblock
+Docs index page and navbar highlighting
+viewing Docusaurus V2 site through Google Translate causes 'page not found'
+Right TOC does not include headings generated outside of markdown
+throws exception: undefined is not a constructor
+Broken links in the Table of content when the heading includes angle brackets
+Unable to use expect types without jest types that leads to conflicts with mocha
+Jest throwing undefined when error is asserted
+verbose\\'s default is "true" and not "false"
+Maybe is a bug? Jest regards 'test.js' as a test file.
+dependency mismatch between github and npm
+Jest reset modules is screwed up with automock
+Unable top locate setupFilesAfterEnv files in monorepos
+Parity in concurrent between jasmine and jest-jasmine
+Jest mock/spy returns undefined even when set up
+Part of localized documentation isn't translated
+watchAll mode uses all available cores
+toMatchSnapshot does not throw an exception on failure
+expect.extend creation of asymmetric matchers not mentioned in documentation
+Unable to mock static method on default exported ES6 classes
+test.todo not working for angular projects just for Node based
+`--passWithNoTests` does not work in watch mode
+Using Chai expect.deep.eql hangs if a getter throws
+Cannot spyOn on a primitive value; undefined given
+Running CLI command with "-U" results in a message containing `Did you mean "$0"`
+'--coverage --watch' should calculate coverage for all files at first iteration
+Invalid hook call after `jest.resetModules` for dynamic `require`s
+Slow when importing from a big ESM bundle
+test.only does not group skipped tests anymore
+requires that 'this' be a Function when trying to toMatchInlineSnapshot
+toEqual do not work correctly with objects having both jasmine.any and Buffer
+"fas fa-fan" is not rendering properly
+Cache invalidation is not happening for all scripts
+Testing Suite Error Message Unclear - Why Does it Not Run?
+Dark theme donate page inputs are not readable
+Code Editor in challenges does not scroll in Firefox
+"Academic honesty accepted" looks like a button
+Profile page - GIthub icon background color not covering whole icon on hover
+Escape key unfocuses the editor when not meant to.
+footer shows twice on profile page
+Unable to play hevc video on LG Q7 (lower end device)
+Video stutter/lag with DD+ 7.1 audio track on Shield
+Tap textField in grouped tableView in iOS 13 modal causes cell clipped
+couldn't find Assets.car in bundle with identifier: '(null)'
+complete UI freezes as textfields are tapped in iOS 13.1, devices > iPhone 8Plus
+Keyboard Cannot Appearance and cannot gonext
+API Explorer is removing "\\\\n" in Curl Output Field
+Inconsistent behavior with env var and cli arg
+Accessibility of the web interface auth method dropdown broken
+TLS Certificate & Key not reloaded on SIGHUP
+AppRole role creation API field `token_policies` actually called `policies`.
+Some hyperlinks in Reference architecture document are broken
+Vault UI shows all versions as deleted if `delete_version_after` is configured
+Bart Tokenizer treat symbols in a word as a new word.
+Creating user via cli without org renders UI unusable
+Using filter in the REPL will panic when not at the beginning of a query
+Error when creating InfluxDB Output Plugin without Bucket
+Unable to proceed with influx 2.0.0 alpha after initial setup
+cannot use _measurement field for delete predicate
+Mapped variables use the key instead of the mapped value in queries
+Cached Single Stat When Cloning Cell
+Cloning a cell on a dashboard doesn't clone size
+Group by tag produces unexpected extra tables
+Cannot scroll to see all items in query builder
+Flux `sleep` is evaluated during task creation
+influx write will mess up the input when it is sufficiently long
+Mention node version when building from source
+TSM arrayCursorIterator some cursors statistics are getting excluded from Stats()
+Unable to select transformation in conjunction with raw field
+Using DERIVATIVE without where time >=
+Sort by "Modified" in Dashboards does not sort by modified date
+Use of http.Post impossible inside tasks
+Flux not working with the sandbox project on Raspberry Pi 3 (raspbian buster)
+query() does not return data if backslash character exists in tag value
+500 Internal Server Error when running Flux in InfluxDB 1.7.8 - ARMHF (Raspberry Pi)
+Unable to re-add bucket to a scoped token after re-creating it
+ionic/vue - the event of ionInfinite in ion-infinite-scroll is never called
+React router not changing props
+Cannot pass data to popover with componentProps
+routerLink forwards does not unmount origin component
+routerDirection="none" not setting page as root page
+Ionic tabs with back button shows child tab briefly after click
+@ionic/react unexpected warning "No IonPage was found to render"
+Menu button is not using proper color due to :host-context on iOS Safari
+Cannot disable splashscreen on browser
+Clicking the button in succession will perform multiple returns
+ion-button element has no left and right border when using fill=outline and expand=full
+React IonTabs component doesn't support documented methods
+React IonModal component doesn't support documented events
+ion-select, 4.11.5, new features not working
+cannot add links inside ion-menu
+Switching between pages causing alot of rerenders
+ion-select text for selected value misaligned with label in md stylesheet.
+ion-input not updating value if space trimmed equivalent of value changes
+(picker) pass single value to picker
+Ionic 4: Ionicons not shown on Android with 'ionic://' scheme
+React NavContext always goes back to default href
+Cannot re-open IonAlert in React
+v4 ion-range should consider document ZOOM value
+IonActionSheet uses non-standard cssClass instead of className
+tab silently fails to load if content is not wrapped in IonPage
+ionic4 ion-select The default value cannot be set for the data requested by the network
+Ionic/React - I can only get one slice of Toast
+<ion-slides> with different slide heights
+Image from url are not shown on real device with Vue.js
+ios11 upper sideslip return problem
+Collapsible header breaks translucent toolbar
+enter page again will show a blank page.
+@ionic/react, It shows push animation when using history.goBack()
+@ionic/react-router not go back expected
+Ion Radio Icon not displayed on android
+Html Canvas wrong in build --prod
+ionViewDidEnter event not firing the first time page shows on screen
+Android opens the app, presses the physical back button in tabs, and the app exits
+tab component is not destroyed
+Vulnerabilities after upgrading to 4.11.2
+Toast Button cssClass placed inside ShadowDom
+ion-router does not work with query params
+Nested route doesn't work after history.goBack()
+swipe to go back flicker when using ios md on an android device
+IonHeader above Ion Tabs when slot is top
+Back Button after FullScreen Mode crash the app
+picker does not select closest option when released at low velocity
+React - Pages are hidden on Android when navigating between tabs
+ion-header ios 11 style only working on first tab
+Ionic Animations should wrap entire forEach with CSS Animations
+Ionic Animations should not create timeout fallback for infinite iterations
+ion-textarea placeholder shifted left by 2 pixels when label (stacked) and placeholder are both used
+ion-textarea on edge and cordova-windows types reverse when typing for first time
+Cant lock scrolling in ion-content
+input focus scroll assist on iOS broken since v4.9
+IonTabButton href showing on browser as undefined when not defined
+4.10.1 breaks ionViewDidEnter in modals
+`ion-router-link` can't link to another page's anchor
+React IonRange is disabled even if `disabled === undefined`
+cursor not visible in input field within a slide on iOS 13
+android page-back animation ends with "flash" of previous page (since 4.10.0)
+Inputs render `undefined` value as text
+large title not working with split pane
+Disabling a ion-radio-group doesn't disable the ion-radios
+Buttons no longer align with ion-searchbar
+False positive on CSS deprecation warning
+ion-router / ion-nav not unloading components when switching views (StencilJS app)
+ionic 4 ion-slide set initialSlide not work immediately
+Menu reveal issues with large title
+Content in menu does not respect safe area
+scrollAssist don't work at Page moved by navigateForward
+iOS shadow transition effect makes left swiper slide inaccessible
+ion-tab halts whole app with white screen
+Not able to generate .xcarchive file after updating xCode version to 11.0
+Components stop working with keep-alive
+ion-range event value is always type RangeValue {lower, upper}.
+ES2015 export does not replace documentFragmentChildren in loop
+Params in router aren't shared in child routes
+Support API level 29 (Android 10)
+Virtual Scroll style height become 0 after fullscreen mode video
+IonMenu's backdrop not displayed on iOS after upgrade from 4.8.1 to
+Ion-image inside virtual scroll shows wrong image until new one loaded
+If one is be at ion-list has unnecessary border.
+Support for Angular's 'anchorScrolling' router option
+The ios drop-down refresh is a little bit wobbly
+Searchbar backbutton does not respect config setting
+performance issue in Ionic-select control type with interface option "alert" Ionic/Angular
+Angular Web Components Accessing formControlName
+ion-select doesn't recognize delayed select options
+Ionic 4 <ion-input> doesn't support Google places Autocomplete!
+White Background overlay view on Keyboard hide on Android
+App freeze when we try to open popover twice
+Segment button checked attribute not working on initial load
+Long pressing ion-tab-button doesn't navigate but set the button to active
+ion-spinner moving when position absolute (possible regression)
+The bug is occurring on ionic version 5.2.7
+Ionic 4 card color only affects the text color.
+ion-textarea autoGrow scroll to top on input
+Failed to set the 'currentTime' property on 'Animation': The provided double value is non-finite.
+ion-fab[edge] is display half when pop in iOS
+The clear button of ion-input remains gray
+IOS only, Ionic 4.8, page will flash when navigate back.
+Ionic/React4.8.0-rc.0 the property 'mycomponent' does not exist on type 'JSX.IntrinsicElements'
+Page transition animations no longer work with ionic/react 4.8.0-rc.x
+translucent toolbar blurred during page transition
+Page transition animation missing after update to `4.8.0-rc.0`
+Keyboard pan got stuck, after keyboard closed on focus off.
+When using ion-nav-push the animation lags on iOS devices only!
+Ionic popover has wrong vertical position (without click) after updates
+'isPlatform' is not exported from '@ionic/react'
+Ionic 4.7 web components styles bug
+React README is missing in main README file
+no view animations when migrating to react 4.8.0-rc.0
+ion-icon triggers angular change detection
+AlertController not allowing multiple input types
+Ion-input is broken with 4.7.x
+Ion-slides starts at index 0 then swaps to initialSlide slide
+Address bar does not hide when scrolling
+Native: tried calling SplashScreen.hide, but the SplashScreen plugin is not installed.
+@ionic/vue@next (0.0.9) <ion-icons> not showing icons
+fab button partly hidden below screen edge
+Istio 1.4.0 proxy and proxy_init variables
+Istioctl unable to set cni properties according to the documentation
+Istio 1.4.0 tracing service moved from port 80 to 9411
+Istio 1.4.0 ClusterRole for Pilot is a bit confusing
+Istio 1.4.0 templated manifest CRDs contain a status field
+Istio 1.4.0 templated manifest contains creationTimestamp
+Using istioctl to generate manifests causes duplicate value
+operator is not processing a key/value pair
+Mixer telemetry needs liveness check for 42422
+istioctl doesn't seem to respect disablePolicyChecks
+kubectl run test --rm --restart=Never -it --image=ubuntu -- echo HI Hangs
+Failed to generate bootstrap config
+istio proxy sidecar doesn't stop when pod completed
+mixer adapter listening on check event is never called (since ISTIO 1.4)
+Kiali config prometheusNamespace istioctl 1.4.0 not working
+KinD does not export sidecar log when running with new test framework
+Wrong chart requirements version in Istio 1.4.0 installation charts
+Istio-proxyv2 (>1.3.0), Kubernetes 1.14.x and Canary
+There are duplicated map field exists in attributemanifest which istioctl manifest generates
+Problem with startinhg istio-sidecar-injector pod due to service account missing
+Invalid image when installing istio using istioctl
+Some times Pilot is skipping sending endpoint updates for a new pod
+The jaeger service could not be accessed via http://localhost:15032 with the version 1.4.0
+istioctl cant set email for cert-manager
+`istioctl version` on a cluster without istio shows strange warning
+IstioControlPlane doesn't react to changing hub
+istioctl bash/zsh completion files are missing
+curl -sL does not work yet
+HTTP calls with host header ending with a dot is blocked by sidecar
+NodePort service of istio-ingressgateway returns connection refused
+Wiki Page Mixer Out of Process Adapter Walkthrough typo
+no matches for kind "ClusterIssuer" in version
+ingressgateway is not respecting service annotation
+internal service error over mTLS - protocol
+Multi cluster installs are not working
+go.mod version and goversion are mismatched in istio 1.4.0
+citadel dashboard appears to not show proper data
+state type instances uses incorrect param name
+Istioctl analyze should fail more visibly when it can't parse files
+Unstable and unexpected Ingress-SDS behaviour after 1.3.4 upgrade
+Operator istio control plane tag not being updated
+Links to Envoy docs should be versioned
+istioctl manifest apply --set profile=demo does not create jaeger-agent service
+kiali cannot show logs due to missing permission
+istioctl help verify-install mentions no longer used itio-demo.yaml
+istioctl profile list still shows demo-auth profile
+citadel cannot work fine within multicluster deployment mode
+cannot unmarshal string into Go value of type
+Test data file names not OS agnostic (result in go get failures)
+Kiali wizards not working on Istio 1.4-beta
+Operator beta-4 and prior install 1.4-dev control plane images instead of beta-4 control plane images
+Can't access pilot-agent API when istio probes are disabled
+operator patch fails on new leaf
+Pilot DNS certificate provisioning must be guarded by a feature flag
+Secure Gateway (SDS) breaks when changing namespaces
+gRPC retry not work when server using SetHeader
+remove (empty collection/string -> none) output, also fix additional quotation mark
+If envoy stops, pilot-agent doesn't restart it
+Istio readiness Probe rewrite should respect the user specified timeout duration
+Calling setFieldValue in response to a field change is out of sync with validations
+FastField re-renders when other fields are changing
+useLayoutEffect is never used in React Native
+argument "propagate" in listens method in Evented set not documented
+openPopup has wrong behaviour on CircleMarker
+Added non-passive event listener to a scroll-blocking 'wheel' event.
+cargo-audit doesn't break the build on warnings
+Run a local network not working
+Different logs in CI vs Local run
+Link references in nested lists aren't parsed
+Incorrect rendering of Commonmark HTML block
+DEB/RPM application crash due to fallback sandbox
+Copy and paste text with subscript will lose the <sub> tag
+set hyperlink in table not working
+Export fails when headings contain an emoji
+Headings containing shorthand emojis won\\'t allow "Exporting to PDF / HTML"
+Strange behaviour when code block under a list
+To-do list indentind wrong while switch Souce Code Mode
+Search when invoked should get prefilled from the currently selected text
+Cannot search text which contains markup in the source
+MacOS auto Light/Dark Mode not working as expected
+jumpClick can't jump to another file
+Julia and Python multiline strings in code block doe not highlight correctly
+The badge in title can't normally render
+The "Preferences" button (cog icon) does not work anymore
+Cannot open markdown file with the filename extension uppercased as "MD"
+Cannot open md file that was saved as UTF8 with BOM
+Can not open bold or italic hyperlinks through Cmd+Click
+List items are copied with too much space
+Loose task list items are copied wrong
+Heading maker is added to normal text
+Do not apply strikethrough to completed tasks
+Find Next vs. Bullet List
+Diagrams do not show on HTML Export
+No undo functionality for Source Code Mode
+yarn dev fails with node 12.0.0
+Wrong shortcut symbols in block list
+Export doesn't work with two or more math expressions in one line
+Line number in code block mess up
+Selecting option on select component--outlined creates extra space
+properties are not proxied to foundation methods
+Chip Set stops working after casting element to chipset in javascript
+Incorrect width for some icons
+Cannot go back on column visualization settings on dashboard + breaks preview
+Error filtering by a sumarize column on PostgreSQL
+v0.33.5.1 or v0.33.6 upgrade error "must be owner of relation metabase_field"
+Check for updates thinks 0.33.5.1 needs to be updated to 0.33.5
+Dashboard table sorting is case sensitive
+"Hour of day" always uses AM/PM even when global formatting is 24-hours
+Postgres date fields displaying as timestamps
+Cannot click back on Trend/Number visualization Settings
+Timeseries tick labels are always in English even when interface is another langage
+Dashboard embed not working in 0.33.5 (Not found)
+metabase docker 0.33.5 not correct hash
+when using a dual monitor setup, fullscreen only works on the primary monitor
+Windows Terminal hangs when hitting Ctrl-C many times
+Windows Terminal 0.7 immediately crashes on startup
+Needs to input twice to insert a single Chinese symbol
+Sometimes panes won't expand and take up blanks
+suppressApplicationTitle doesn't work when extra command is run in commandLine
+Executing batch script via command line hangs
+Hebrew char taf (accessible by comma key on hebrew keyboard) appears in settings
+Input method problem, cursor bar not following
+Trying to define color 256 causes temporary hang
+Unable to set colors above index 15 with OSC 4, take 2
+Full screen not quite working in
+When entering a Chinese punctuation, it acts like keeping hitting the key
+Installation via chocolatey fails saying that is missing
+Cannot copy text by painting after Node.js session in a new tab
+Windows terminal has been terminated when dragging terminal to another display that has different resolution
+Terminal quits immediately if is not on PATH
+Sometimes terminal isn't rendering after maximize from taskbar
+Which tab is active -- not clear
+History window partially invisible when switching from bash to cmd.exe
+Color schemes with itermcolors extension are not applied properly
+App terminates unexpectedly when moved from high-DPI-Screen to Lower-DPI-Screen
+scroll speed is too fast on the touchpad
+Graphical Tools cmdlets in PowerShell 7 Preview 6 open windows behind the Terminal
+IME doesn't show composition input on 19H1/2 (???)
+Tab reordering causes tab to disappear
+About modal's context menu is not legible when using dark theme
+"About Box" popover does not resize with the window
+A white line appears below the mainwindow
+Inverse cursor color logic is (sometimes) broken
+nextTab and prevTab keyboard shortcuts don't scroll tab bar to keep active tab in view
+Running git difftool doesn't run external diff tool in foreground
+Text display error after restore down
+black lines in background when using midnight commander or neovim
+Title bar does not respect the system theme
+The Terminal crashes when dragging the window to a secondary monitor
+Clicking the current tab to raise the window should focus the text area
+Typing chars until line break and then back space confuses typing position
+Reordering tabs crashes when Terminal is running elevated
+Selection Color should invert selected text color
+Windows terminal crashes when moving to another monitor
+Tabs don't reappear after resizing the window horizontally
+Wrong text size when running sudo apt update
+Cannot launch new profile without explicitly specify `startingDirectory`
+Formatting issues when pasting in WSL tab
+Double cursors in neovim terminal buffer (and fzf, probably more)
+acrylic effect goes away when window loses focus
+Alternate screen shouldn't write to scrollback or normal screen
+Invalid date String is accepted as valid date
+returns difference in hours as milliseconds property on resulting object
+Hide input when whole component is disabled in 'multiple' mode
+material-ui/lab skeleton text variant produces a floating &nbsp; on the page
+onChange undefined intermittently when options updated
+Module @material-ui/core has no exported member ThemeProvider
+Tooltip is not centered over a Switch
+Styling with `withStyles` doesn't work
+onInputChange it's fired in wrong moments
+options are not filtered when you use 'onInputChange' prop on a controlled Autocomplete
+Select doesn't actually follow material design guidelines
+Dropdown icon is moved to left
+Shift+Home when input has focus should not be prevented.
+Property "size" not working on Radio component
+set value triggered click away close
+setting the anchorOrigin property on badge component overrides showZero and insivible behavior
+Textfield label animation doesn't occure when i click it.
+Select doesn't lose focus if element is deleted from inside its input.
+<input> rendered with incorrect autocomplete="disabled"
+Dropdown icon not centered-aligned when variant="filled"
+multiple values dropdown arrow & x pushed to wrong location
+Default font-size of `body` is `0.875rem` when using CssBaseline
+Warn when collapsedHeight misses units
+Slider work wrong when we config max%step !== 0
+is not optional in CreateFilterOptions
+Multiline causes overlap with the drop-down icon
+LinearProgress fails to display under flexbox
+TypeError: Cannot read property 'cssRules' of null
+freeSolo, can trigger change event twice with "enter"
+TextField with InputProps breaks the listbox from displaying
+can't disable underline with inputProps
+Does not reposition when updated
+Input react-select event is null when trying to remove the last value only
+Can't use custom HTML with tooltip on disabled element
+Rows per page "All" does not show last item
+Icons not changing size with use of fontsize
+inputValue is always undefined in the renderOption prop
+RuntimeError on hitting Enter after inserting a value when multiple
+I need help in MaterialTable for using REST calls
+onChange does not fire in tests (react-testing-library)
+Deleting any item from multi-item autocomplete always causes the first item to be deleted.
+CSS Specificity on Chip and Avatar
+will not "select" when onChange is set that uses useState hook
+Form labels for check boxes might be misbehaving
+Autocomplete get autofilled on blur and breakdown
+Outlined label overlaps by border
+Swap from side not working
+Options are hidden under Diaolg
+Not applying correct styling to custom buttons
+clearOnEscape causes exit from fullscreen
+Inconsistent horizontal padding in Button when used with startIcon/endIcon
+Tooltip wrapped toggle buttons break highlight
+Autocomplete Multiple Values delete bug
+Disabled FormControl crashes on child's disableUnderline prop
+fab size messes up alignment
+Closing Dialog causes scroll to top
+Table sticky header incompatible with multiple headers
+createBreakpoints does not work with custom variant!
+theme spacing not working as expected for line-height
+Material-UI: unsupported `` color. We support the following formats: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla().
+Tooltip on disabled buttons with span do not work in Safari
+SpeedDialAction onClick inherits function call from parent component SpeedDial onClick
+Unable to set the tabindex of html element within the Modal
+Container Component align property's Bug in Edge Browser
+eslint import plugin reports error when importing 'Theme' from
+Custom tooltip ignores valueLabelFormat and valueLabelDisplay
+Null color prop will crash the app.
+Switch component doesn't respond to drag gesture
+Variant outlined has same class duplicated
+Select onBlur after load when open is controlled and initially true
+Can't give variant to wrapper of TextField component
+Bug with draggable HTML attribute
+Select with endAdornment overlaps with arrow icon
+Select component does not respect `disabled` styles
+Unable to get property 'root' of undefined or null reference
+Consolidate dependency versions to "@material-ui/utils" "4.4.0"
+Drag event not propagated through CardActionArea in IE11
+Scrollbar appear when a password field with eye is in a Dialog
+Type Error of Modals docs
+ListSubheader reject ListItem as component prop
+Popover with flexbox wrap: auto width no working
+"Maximum update depth exceeded." in Internet Explorer 11
+Material-UI + Next.js example - theme no longer working
+Shadow rendered incorrectly in Microsoft Edge
+select - clicking on the label doesn't give focus to the field
+Property 'component' does not exist on type
+Website keeps redirecting me to v0
+nextIconButtonProps and backIconButtonProps disabled property does not work
+Deprecated warnings for left-pad@1.3.0 and flatten@1.0.2
+Secondary list action rendering issue when list is virtualized (react-window)
+Yarn missing latest package on mirror
+Grid with flexDirection column collapses in combination with TextField components
+'SKIP_PREFLIGHT_CHECK' is not recognized as an internal or external command, operable program or batch file.
+<Select> and <Radio> not re-rendering correctly when created programmatically
+Using responsiveFontSizes results in inconsistency between <Typography> and <Box> Component
+Missing divider between buttons if backgroundColor is set
+Hover/Focus state should lighten & elevate
+Components crash when required prop is missing
+The OverridableComponent type is missing properties
+CircularProgress is off center when setting font-size on wrapper or using a small size
+Property 'ref' does not exist on type
+Tooltip placement class is not correct
+Horizontal scroll bar appears when using full-size grid
+SwipeableDrawer get triggered when scrolling on a Dialog that appears on top of it
+Certain custom components make skeleton invisible without custom styling
+Safari + Dialog + TextField focus issues
+Clickawaylistener doesn't fire on buttons and links
+Dynamically adding Expansion Panel on button click
+Can't get nested theme to work
+Tooltip issue on scroll on TableCell
+Regression in v4.4.1 when no label is used
+Don't lock the body scroll
+Using Badge for Avatar in Chip warns about childrenClassName and break the presentation.
+Grid direction "column" just became even more unpredictable in new Chrome version
+Outlined/Filled Selects in docs are broken
+Select inside table cell overlaps TableHead component inside of Table component
+Specified length extends beyond file bytes length
+Large program opens a defined strings window will be stuck
+Dex strings skip every second byte in 9.1
+getProjectRootFolder() from flatAPI does not seem to be working in 9.1
+GhidraDev "Link Ghidra" fails, Unhandled Event Loop Exception
+MSVC float (conditional) division and multiplication not decompiled correctly
+Indirect jump using PUSH-PUSH-RET pattern not identified
+"Symbol Name can\\'t be empty" in 9.1-BETA and above
+Setting a default function name within a namespace deletes the function name
+When loading ARM BE8 binaries instruction set does not default to V8LEInstruction
+Missing space characters in GUI labels
+Script Key Bindings not working (works in 9.04)
+Webview stopLoading() does not work on android
+Problem navigation with BottomNavigation element of Nativescript and material design
+Changes in Elements tab doesn't apply after livesync
+Negative line height inconsistent behavior on Android and iOS
+Action bar has extra padding on top without status bar showing [Android] [NS 6.2]
+White screen on preview with Vue Typescript class components
+hmr doesn't apply changes in pages other than main page
+NativeScript huge app bundle in newer versions
+app crashes when there is active button in the bottomsheet and being dismissed
+(android) Setting border or border-radius to Buttons removes ripple
+Modal in IOS does not respond to transparency.
+NativeScript RadSideDrawer template get crashed after some back and forth navigation
+nested css-calc and css-variables with fallback give incorrect result
+Label formattedText not working under Repeater
+Issue with Scrollview scrolls even with scrollEnabled = {false}
+lists are not respecting their container
+Error: Can't resolve 'EmitterSubscription' (Expo/Webpack?)
+`autoComplete="off"` is not working in browsers.
+Window.open and two tabs breaks app
+nativeEvent is null on React 16.10.1
+TouchableOpacity with onPress causes an error to the whole page
+TextInput keyboardType="numeric" breaks custom validation on Firefox
+bash script fetching unknown package libc-dev
+Stable release tarballs should default to RELEASE_CHANNEL=stable
+Collectors block if dbengine page cache is full of dirty buffers
+Be consistent in use of tab/space in Makefile.am files
+Node-list Not Loading on Firefox 70.0
+rhel7 can not provide cups-devel >= 1.7
+Node-list not loading on macOS Safari 13.0.2
+kickstart-static64.sh does not write a proper REINSTALL_COMMAND to .environment
+netdata-updater.sh script disables itself on kickstart-static64.sh installations
+netdata-updater.sh always updates during first run after installation
+Documentation on operator[] behavior with missing keys
+reduce build time for Travis valgrind
+type_name() is not consistent with type()
+Parse fails when number literals start with zero
+'Float' number_float_function_t template parameter name conflicts with C '#define Float float'
+`--open` flag not working in Parcel 2
+Web worker bundle lacks entrypoint argument
+Parcel adds dot to file with no extension.
+Can't read function inside html native attribute, onclick, onsubmit
+CSS files empty in case data is defined in .sassrc.js for scss files
+`--no-autoinstall` is not respected for package.json in subdirectories
+Cannot find module 'path-dirname' when running parcel index.html
+Scope Hoisting Static Class Property not Working
+Cannot set a rel canonical without the referred href existing
+Parcel ignores resources declared in JS template literals
+import axios from 'axios' not working
+DOM gameObject visible when scene is sleeping
+Word wrap adds space if the last line is only one word long.
+Edge zone with a curve
+Can\\'t pause animation after set play("other_anim").
+MultiAtlasFileConfig object takes url instead of atlasURL
+Parameter is missing from Timeline callbacks
+Body broken for container in scaled container
+disableContextMenu setting doesn't work in mobile
+Portainer does not update endpoints according to endpoints.json
+Two errors in Portainer API documentation on SwaggerHub
+1.22.1 version label still in 1.22.2 release
+Prisma go client cannot query nil values
+not possible to create a simple mutation with input from an array?!
+{} - Failed to validate connection {} ({}). Possibly consider using a shorter maxLifetime value.
+Interface 'Model' in overlap the generated types when user-schema have type Model
+prisma deploy is really slow, event apply changes or apply nothing
+Query by empty (nullable 1:1) relation always return empty result set.
+Initializers are not allowed in ambient contexts.
+can not find project through nginx
+relation "CloudSecret" does not exist
+Vulnerability in dependency `marked` should be upgraded
+change bucket_cap_mb in DistributedDataParallel and md5 of grad change
+`torch.Size` is tranfered to`torch.Tensor`, values don't equal
+Unable to register custom JIT Operator with
+Conda CUDA builds are taking more than 4 hrs on Windows
+Cannot call rpc.init_rpc two distinct times.
+Remote python exception is not rethrown when create remote reference to itself
+Cannot load libmkl_avx2.so or libmkl_def.so.
+crashes if an exception is thrown.
+torch.std() returns nan for single item tensors.
+windows release of pytorch 1.3 is missing several required cuda libraries
+Didn't find engine for operation quantized::conv_prepack NoQEngine
+torch.sum(tensor, dim=()) is different from np.sum(arr, axis=())
+'SO_REUSEPORT' was not declared in this scope
+Provide binaries for Python 3.8
+initializedContextIds_ field in DistEngine grows without bound
+TorchScript does not preserve string behavior for string with unicode characters
+!t.is_cuda() INTERNAL ASSERT FAILED at
+Typo in "from .replicate import replicate as repliace"
+RPC couldn't match torch.ones with requires_grad=True
+nn.AvgPoolxd raises error for too small input.
+video module is missing or was moved from torchvision latest release
+PoissonNLLLoss does not compute the value documented
+Segmentation Fault when assign tensor on Raspberry Pi
+Doing rendezvous twice can cause hangs
+Boolean tensor transpose bug in 1.3.0
+Vue CLI 4 add Quasar Plugin failed
+Cannot read property \\'screen\\' of undefined" with Vue CLI 3 plugin
+Search and control buttons do not apply to 'scroll-area'
+QTabPanels keep-alive doesn't works for panels with iframes
+{ all: auto }` doesn't merge current component array from AE's
+Button label align with link is always centered
+q-menu context-menu on mobile opens onTouchEnd
+npx quasar dev - Failed to open default browser - Ubuntu WSL
+Incorrect / undefined values from this.$q.screen
+Empty QTabs shows extra chevron buttons
+Allow Users to set 'nodeIntegration' to false in electron mode.
+Deprecated lifecycle methods (e.g componentWillMount) in boilerplate code
+Build size is too big, around 1.2 mb
+Build Production - Minified React error #130
+How to properly deploy production build files into subdirectory
+Solving "Update blocking" issue in react-boilerplate
+NavDropdown does not pass `id` or other props to DropdownToggle
+0.33.0 version, aria-hidden=true is applied to modal (role="dialog") on open state.
+Typescript incorrect import in types file
+Visual glitch with DragSource & its overlapped element
+Cannot be used with password input
+Drag preview using hooks is not working in ie11
+(0 , is not a function
+Tooltip hovering in wrong position on Android
+undocumented attribute "activeOpacity" of component "ListItem"
+Icon stops showing after upgrading RN to 0.61.1 from 0.59.9
+how to make Tooltip adapte on text size?
+testId no longer working on Image Tag.
+rxjs@6.5.2 has no rxjs-compat refference at package.json
+When using Subscribables compositionally, types are lost
+Breaking change since 6.5.0 - "of" no longer contains value object
+TakeWhile operator with inclusive true stackoverflow exception
+Streams of type Observable<x> | Observable<y> does not work
+Autocompletion for apt-get doesn't show packages
+Theme choose does not display exit code
+Update offer without any available update
+`git-auto-fetch` not able to handle passphrase protected ssh-keys that are not in ssh-agent
+Android 8 & 10 mobile app - ldap - invalid credentials
+page title and favicon not set as expected, left as default values.
+Cannot use umlauts in channel names
+Offline Email Notifications for all messages
+Sidebar is showing 12h format despite 24h format settings
+Set X-Content-Type-Options header in the response header
+Missing message content for thread reply search results
+error 404 for links and iframes, but URL works when I type it
+Adding users requires setting 'Verify' flag
+Change in notification defaults not reflected in the UI
+Auto translate will not work for the new translation language
+Cannot find modules when scaffolding a new rocket.chat app
+Wrong asset-path for logo in sidebar__footer
+Username used instead of real name in the quoted message
+Iframe Integration can't with http (chrom not work)
+The sidebar is badly broken on resizing the browser
+Search bar doesn't fit to end of sidebar
+The emojis doesn't show up when used with a dot after a sentence
+Custom emoji name and alias cannot use utf-8 encoded characters
+Allow notification change on OSX desktop exception
+The "save changes" button in the profile section of My Account shifts to the left
+On resizing the screen the chat screen is hidden under the other sidebar
+Message with attachment posted via API is not editable
+Audio/Video player stops playing when someone 'reacts' to it
+The cancel button in the popup dialog has weird background
+Existing threads behaviour when threads are disabled
+'From address' missing on email for verify email address from profile page ( 1.3.2 )
+Use First Name and Last Name Initials For Generating Avatar
+Missing table header in Directory - Users for createdAt column
+Can't add new users with both user and livechat-agent role
+Cannot send file with extension *.cfg
+No avatar in the app, just a little box
+the messages are not pruned on mobile after retention
+Deleted messages are not removed from the count of messages in a room.
+Edit + Reply not working properly
+admin - info page not showing anything
+Conversation moved to unread section and back while open
+Documentation for Federation needs an update
+chat.delete not working with direct chat
+Blank gray page showed after run RocketChat service
+Rocketchat 2.1.0 Editing Message gone / broken?
+Open file on extension rule after download
+Thread UI broken when Hide Avatars is set
+Url capturing is not working properly in markdown text
+LDAP wrong password if containing dollar sign
+Url capturing is not working properly in markdown text
+Collect RocketChat Logs in Sumo Logic
+package-lock.json file has erroneous resolved = false fields
+Webdav error 500 in RocketChat, file has successfully uploaded.
+Missing space between last username & 'and' word in react notification
+rocket.chat not in android "share to" menu
+Cannot reference discussion by its name
+User passwords are shown in cleartext at the logs when adding a webdav server
+RocketChat HA does not work without "master" instance
+Announcement not showing on 2.0.0 rc2
+Usernames not returned from *.info endpoints
+Guest user is allowed to make a Video call or Audio call to user
+search channels lose focus and close it on first action
+Mobile keyboard opens automatically on docked tablet
+Leave Room Button is not placed correctly
+does not work specific symbols in url
+Escaped brackets are removed from code blocks
+File Download button opens on the same window
+Posting twitter links doesn't display the tweet.
+webDriver.WebElement ".isDisplayed" is not a function
+Cannot convert from AppiumOptions to DriverOptions() error when creating new AndroidDriver
+Empty classifier in selenium-remote-driver et all lead to problems with sbt-launcher
+Not working using chromium on Ubuntu 19.10 (snaps package)
+Returned value cannot be converted to Boolean: {} on isDisplayed() method.
+ChromeDriver tests are not included in Bazel build
+Unable to load Chrome extension (crx file) using Chrome Options on Chrome 78
+can't access dead object on firefox 70
+and IWebElement.Displayed throw exception on selenium github version, works fine on NuGet version.
+This version of ChromeDriver only supports Chrome version 75
+Unable to retrieve page content on 401 Response Code
+`test` that evaluates to `true` segfaults
+How do you use Storybook with Angular 5
+Application of general good practices, for Yarn v2 compatibility.
+Props table doesn't render a prop without a propType definition
+Preview component is not compatible with content that is hidden
+A prop row shouldn't have top margin when there is no description
+Error does not escape html tags
+title shows whole path @5.3.0-beta.2
+Invariant failed: You should not use <Link> outside a <Router>
+Warning in console when removing value from number knob
+Documentation is missing if component is exported with a higher order component (like React.memo)
+fn.apply is not a function
+Optional union type is showing as `any` type
+Default value doesn't render in the props table for some TypeScript types
+RenderFunction & Renderable are not exported
+<Source /> component doesn't pass dark theme prop
+Setting component via Meta does not work directly
+Components with vue functional keyword does not render on storybook
+extractProps assumes propTypes to be in wrapped component
+addon-viewport fails with new CSF format
+Canvas-only story are available in the navigation menu even with --docs only
+MDX Story only renders first child
+addon-viewport breaks the story in Storybook HTML
+modelConnection GraphQL queries are bypassing permissions.
+Mongo internals are being returned via API
+When having multiple uploads, cant identify each of them
+add noindex meta tag to the default public/index.html
+Bad Request Error on API Login
+Can't add entries to repeatable groups from a controller
+Wrong error in startup when no database is running
+mongo filter by createdAt/updatedAt does not work
+Can't filter by id on MongodDB
+Cannot search on Strapi official documentation
+Forgot password email is case sensitive
+Querying a relationships group fields returns null
+Strapi stores any Date with the Previous Date
+Creating Content Type "Number" Crashes Server
+Save displays as '...' and stays that way indefinitely
+Cannot create a content type "function."
+Unable to hot reload when save file when --watch-admin
+POST requests to strapi returns 404
+UsersPermissions initialize bootstrap function is slow
+Disabling tutorials in admin panel has no effect
+Whitespace is removed around <tspan> elements
+Module context export not working if instance variable with same name exists
+Component binding is KO when reactive declaration
+Keyed each does not preserve element (re-create) when reordered
+Each blocks after slot with let directive captures wrong ctx
+{#each} block does not work with Set()
+Each block with no reactive expressions doesn't update based on length change
+Reserved work used in prop default value outputs invalid javascript
+Circular reference in schema leads to Could not resolve reference: undefined undefined
+in Swagger UI v3.13.6 [Extension of 4098]
+Launch container image with read-only filesystem
+Misleading error on failing to load URL
+displayRequestDuration is not working as expected
+Swagger UI doesn't know how to deal when URLS is empty array
+Starting in v3.23.4, descriptions no longer display for responses
+v3.23.7 breaks try-it-out on POST method
+"Conv2DBackpropFilter uses a while_loop. Fix that!"
+ListWrapper does not support insert method for nested lists of layers
+Performance regression with obj. det model from 1.14 to 1.15
+Only one GPU is used during .fit() validation phase
+Impossible to use in distributed training
+Keras .fit() yields incorrect results when using a custom loss function
+tf.train.Checkpoint does not seem to save optimizer state, impossible to load_weights using skip_mismatch=True
+sigmoid is ignored when calculating loss by calling method model.fit
+Optimizer clipvalue and clipnorm not working in Tensorflow 2.0
+Unable to delete ikev2 profile on iOS
+"ERROR! the playbook: could not be found"
+RDM SegFaults while trying to read an entry
+redis-desktop-manager cannot perform operatio Permission denied
+gVim in Windows - touch scroll left window do not work
+vi' does not select anything with selection=exclusive (after
+Fix test_xhelpgrep() for 160 > columns
+Selecting text with the mouse doesn't select to the end of the line
+Netrw :MF doesn't select glob patterns (*.c)
+Scheme ftplugin sets local variable lispwords, clobbers/shadows any user-set values
+Statusline flickers when scrolling when `syntax` and `number` are on
+The color is not right if wincolor in popup window has `reverse` attribute
+cursorline in popup window makes the signcolumn show up
+EndOfBuffer color in popup window seems not right.
+dialog's corner radius and position have been changed when resume again
+Top corners radius are broken for datePicker
+Name of the parent view is shown as "0" if parent is External Storage
+Swiping the wxc-swipe-action component on the iOS phone did not respond
+Incorrect page zoom happend occasionally.
+Absolute layout element cover priority not match with element order.
+failed after upgrade ubuntu to 18.04 and tensor rt to 5.0+
+C++ compilation of rule failed (Exit 1)
+Traffic Light Display Error with demo_3.5.record
+http(s)Agent not sent properly to follow-redirects
+Nested params option not works as expected
+ECONNECTION Reset error on server side but not on client side
+array query params aren't serialized properly
+DROP DATABASE still waiting for GC TTL after 25h
+ALTER INDEX IF EXISTS does not seem to work
+cockroach cloud management console links to "managed" instead of "cockroachcloud" in url
+Restore geo partitioned data with enterprise backup and restore
+result is ambiguous (error=unable to dial n13: breaker open [exhausted])
+when train the model again after Termination
+module 'tensorflow' has no attribute '__all__'
+Build fails if components are put into sub-directory
+Variable definition in MDX broken when referenced in Playground
+Component not importing correctly into mdx file
+Props works wrong when component is written in index.tsx
+docz css pollute the `<Playground>`
+Empty page causes pdf report to fail
+Long span names are truncated at the start of the name
+IE11 compatibility - prepend is not a function
+edit button not working after adding new layer
+Reduce size of 42MB/28MB animated gif in docs
+Kibana fails to start up when xpack.telemetry.enabled is set
+Error when removing a dimension from a visualization
+Telemetry notice per splash screen needs to be removed.
+Group by Filter remains active after change to Group by Terms in TSVB
+Drag and drop failure on process.name
+Invalid version check doesn't work for Legacy plugins
+Color legend not showing in "Custom color ramp"
+Images not displaying in asset manager
+Position arg UI for axisConfig applies translated string in expression
+Inconsistent search behaviour in advanced settings for Telemetry
+CSV export doesn't export all fields
+Integrations links seem to be broken for basepaths in 7.4
+TLS information not being displayed
+Kibana doesn't start on Centos 7.7
+Embed Snapshot with Short URL, ?embed=true not working to remove header and nav drawer
+reporting view hangs during report generation, until success or timeout
+report generation timeout when visualisation has error
+Long full name pushes logout button out of view
+Filter bar changes size when a filter is added/removed causing visualizations to resize
+Multi Line Chart shows wrong y-axis count
+Saved Objects interaction is performed with an unnecessary custom client
+Inventory\\'s "Group-by" dropdown allows duplicate fields
+Group-by dropdown allows duplicate entries for custom fields
+Wizard preview is missing option to toggle column visibility
+trying to remove a disabled bucket aggregation fails and can not be removed or re-enabled
+Setup wizard does not detect Metricbeat data
+Error in console when switching from Inventory View
+Kuery bar completion pops up behind other controls
+Contextual menu of the table view is disconnected from the cell that triggers it
+Timelion tips 'collapse' button doesn't work
+average bucket is not working
+Canvas workpad in other site, autoplay shows character
+Breadcrumb composition on monitor page is creating bad links
+Maps app tries to fetch data on empty filter setting changes
+Autocomplete not functioning in `master`
+Filters are not being supplied to the monitor list on the Overview page
+Route changes on telemetry submit
+IP address column in Monitor History table should be right-aligned
+Date picker on analysis setup screen shows index pattern fields from below
+Discovery lucene query syntax warning cause "Uncaught TypeError"
+Index pattern warning bang for refresh map field is misleading
+Scrolling up and down to load additional entries doesn't work
+Incorrectly drawn bars when using derivative()
+Missing axis ticks when using different timezone than local/utc in IE11
